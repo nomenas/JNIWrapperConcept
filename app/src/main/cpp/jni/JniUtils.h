@@ -7,40 +7,44 @@
 
 #include <functional>
 
-#define FROM_BASE(FROM, TO) \
-    using Type = TO; \
-    from<FROM>(JNIEnv*, Type value) : _value(value){} \
-    Type value() const { return _value;} \
-    operator Type() const {return _value;} \
-    Type _value;
-
-#define TO_BASE(FROM, TO) \
-    using Type = TO; \
-    to<Type>(JNIEnv*, FROM value) : _value(value) {} \
-    Type value() const {return _value;} \
-    operator Type() const {return _value;} \
-    Type _value;
-
 template <typename T>
 struct from{};
 
 template <typename T>
 struct to{};
 
-template <>
-struct to<int> { TO_BASE(jint, int) };
-template<>
-struct from<int> { FROM_BASE(int, jint) };
+template <typename From, typename To>
+struct to_base {
+    using Type = To;
+    to_base<From, To>(JNIEnv*, From value) : _value(value) {}
+    Type value() const {return _value;}
+    operator Type() const {return _value;}
+    Type _value;
+};
+
+template <typename From, typename To>
+struct from_base {
+    using Type = To;
+    from_base<From, To>(JNIEnv*, Type value) : _value(value){}
+    Type value() const { return _value;}
+    operator Type() const {return _value;}
+    Type _value;
+};
 
 template <>
-struct to<long> { TO_BASE(jlong, long) };
+struct to<int> : to_base<jint, int> { using to_base<jint, int>::to_base; };
 template<>
-struct from<long> { FROM_BASE(long, jlong) };
+struct from<int> : from_base<int, jint>{ using from_base<int, jint>::from_base; };
+
+template <>
+struct to<long> : to_base<jlong, long> { using to_base<jlong, long>::to_base; };
+template<>
+struct from<long> : from_base<long, jlong>{ using from_base<long, jlong>::from_base; };
 
 template<>
-struct to<bool> { TO_BASE(jboolean, bool) };
+struct to<bool> : to_base<jboolean, bool> { using to_base<jboolean, bool>::to_base; };
 template<>
-struct from<bool> { FROM_BASE(bool, jboolean) };
+struct from<bool> : from_base<bool, jboolean>{ using from_base<bool, jboolean>::from_base; };
 
 template<>
 struct to<void*> {
