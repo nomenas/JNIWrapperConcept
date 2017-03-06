@@ -21,16 +21,16 @@ JNIEXPORT void JNICALL
 
     JNIEXPORT void JNICALL
     Java_com_nomenas_wrapperconcept_project_SimpleClass_method1(JNIEnv *env, jobject instance) {
-        CALL_CPP_VOID(env, instance, SimpleClass, call(obj, &SimpleClass::method1))
+        call<SimpleClass>(env, instance, &SimpleClass::method1);
     }
 
     JNIEXPORT jint JNICALL
     Java_com_nomenas_wrapperconcept_project_SimpleClass_method2(JNIEnv *env, jobject instance, jint value) {
-        CALL_CPP_RETURN(env, instance, int, 0, SimpleClass, call(obj, &SimpleClass::method2, to<int>(env, value)));
+        return call<SimpleClass>(env, instance, &SimpleClass::method2, to<int>(env, value));
     }
 
     JNIEXPORT jstring JNICALL
     Java_com_nomenas_wrapperconcept_project_SimpleClass_method3(JNIEnv *env, jobject instance, jint value, jstring text_) {
-        CALL_CPP_RETURN(env, instance, std::string, nullptr, SimpleClass, call(obj, &SimpleClass::method3, to<int>(env, value), to<std::string>(env, text_)));
+        return from<std::string>(env, call<SimpleClass>(env, instance, &SimpleClass::method3, to<int>(env, value), to<std::string>(env, text_)));
     }
 }

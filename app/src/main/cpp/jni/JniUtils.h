@@ -21,20 +21,6 @@
     operator Type() const {return _value;} \
     Type _value;
 
-#define CALL_CPP_VOID(ENV, INSTANCE, CLASS, METHOD) \
-    CLASS* obj = get_reference<CLASS>(ENV, INSTANCE); \
-    if (obj != nullptr) { \
-        METHOD; \
-    }
-
-#define CALL_CPP_RETURN(ENV, INSTANCE, RETURNTYPE, DEFAULTVALUE, CLASS, METHOD) \
-    from<RETURNTYPE>::Type return_value = DEFAULTVALUE; \
-    CLASS* obj = get_reference<CLASS>(ENV, INSTANCE); \
-    if (obj != nullptr) { \
-        return_value = from<RETURNTYPE>(env, METHOD); \
-    } \
-    return return_value;
-
 template <typename T>
 struct from{};
 
@@ -55,7 +41,6 @@ template<>
 struct to<bool> { TO_BASE(jboolean, bool) };
 template<>
 struct from<bool> { FROM_BASE(bool, jboolean) };
-
 
 template<>
 struct to<void*> {
@@ -131,8 +116,11 @@ void delete_referenced_object(JNIEnv *env, jobject instance) {
 };
 
 template <typename Class, typename Method, typename... Args>
-auto call(Class* instance, Method method, Args... args) -> decltype(std::bind(method, instance, std::forward<Args>(args)...)()) {
-    return std::bind(method, instance, std::forward<Args>(args)...)();
+auto call(JNIEnv *env, jobject instance, Method method, Args... args) -> decltype(std::bind(method, instance, std::forward<Args>(args)...)()) {
+    Class* obj = get_reference<Class>(env, instance);
+    if (obj != nullptr) {
+        return std::bind(method, obj, std::forward<Args>(args)...)();
+    }
 };
 
 #endif //WRAPPERCONCEPT_JNIUTILS_H
