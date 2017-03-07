@@ -6,6 +6,10 @@
 
 #include <sstream>
 
+SimpleClass::SimpleClass(int) {
+
+}
+
 void SimpleClass::method1() const {
 }
 
@@ -20,9 +24,17 @@ std::string SimpleClass::method3(int value, const std::string& text) {
 }
 
 SimpleClass* SimpleClass::get_owned_item() const {
-    return nullptr;
+    static SimpleClass _instance(0);
+    return &_instance;
 }
 
 owner<SimpleClass*> SimpleClass::get_item_take_ownership() const {
-    return nullptr;
+    return new SimpleClass(0);
 }
+
+int SimpleClass::callMethod(SimpleClass* obj, int value) const {
+    return obj ? obj->method2(value) : 0;
+}
+
+
+

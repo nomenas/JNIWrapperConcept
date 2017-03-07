@@ -2,11 +2,9 @@ package com.nomenas.wrapperconcept.project;
 
 abstract class Object {
     private long reference = 0;
-    private boolean isOwner = false;
 
-    public void setReference(long reference, boolean takeOwnership) {
+    public void setReference(long reference) {
         this.reference = reference;
-        this.isOwner = takeOwnership;
     }
 
     public long getReference() {
@@ -14,9 +12,7 @@ abstract class Object {
     }
 
     protected void finalize() {
-        if (isOwner) {
-            delete();
-        }
+        delete();
     }
 
     protected abstract void delete();

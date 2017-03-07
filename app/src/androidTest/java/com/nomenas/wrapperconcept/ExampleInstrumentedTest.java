@@ -32,9 +32,21 @@ public class ExampleInstrumentedTest {
 
     @Test
     public void testCreateClassImplInstance() throws Exception {
-        SimpleClass instance = new SimpleClass();
+        SimpleClass instance = new SimpleClass(4);
         instance.method1();
         assertEquals(1, instance.method2(1));
         assertEquals("test 1", instance.method3(1, "test"));
+
+        SimpleClass ownedItem = instance.getOwnedItem();
+        assertNotNull(ownedItem);
+        assertEquals(2, ownedItem.method2(2));
+        assertEquals("ownedItem 2", instance.method3(2, "ownedItem"));
+
+        SimpleClass sharedItem = instance.getItemTakeOwnership();
+        assertNotNull(sharedItem);
+        assertEquals(3, ownedItem.method2(3));
+        assertEquals("ownedItem 3", instance.method3(3, "ownedItem"));
+
+        assertEquals(5, instance.callMethod(sharedItem, 5));
     }
 }

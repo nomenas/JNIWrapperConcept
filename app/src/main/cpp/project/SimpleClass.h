@@ -13,12 +13,16 @@ using owner = T;
 
 class SimpleClass {
 public:
+    explicit SimpleClass(int);
+
     void method1() const;
     int method2(int value);
     std::string method3(int value, const std::string& text);
 
     SimpleClass* get_owned_item() const;
     owner<SimpleClass*> get_item_take_ownership() const;
+
+    int callMethod(SimpleClass* obj, int value) const;
 };
 
 
