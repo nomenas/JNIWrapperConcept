@@ -48,5 +48,10 @@ public class ExampleInstrumentedTest {
         assertEquals("ownedItem 3", instance.method3(3, "ownedItem"));
 
         assertEquals(5, instance.callMethod(sharedItem, 5));
+        String result1 = instance.getConstValue();
+        String result2 = instance.getConstValue();
+        assertEquals("const value", result1);
+        assertEquals("const value", result2);
+        assertEquals(result1.hashCode(), result2.hashCode());
     }
 }

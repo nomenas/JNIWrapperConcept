@@ -23,6 +23,8 @@ public:
     owner<SimpleClass*> get_item_take_ownership() const;
 
     int callMethod(SimpleClass* obj, int value) const;
+
+    std::string getConstValue() const;
 };
 
 

@@ -15,6 +15,8 @@ public class SimpleClass extends Object {
 
     public native int callMethod(SimpleClass obj, int value);
 
+    public native String getConstValue();
+
     protected SimpleClass() {};
     protected native void create(int value);
     protected native void delete();

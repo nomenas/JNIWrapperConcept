@@ -55,4 +55,9 @@ JNIEXPORT void JNICALL
     Java_com_nomenas_wrapperconcept_project_SimpleClass_callMethod(JNIEnv *env, jobject instance, jobject obj, jint value) {
         return from<int>(call<SimpleClass>(instance, &SimpleClass::callMethod, to<SimpleClass*>(obj), to<int>(value)));
     }
+
+    JNIEXPORT jstring JNICALL
+    Java_com_nomenas_wrapperconcept_project_SimpleClass_getConstValue(JNIEnv *env, jobject instance) {
+        return static_cast<jstring>(call_and_cache<SimpleClass>("getConstValue", instance, &SimpleClass::getConstValue));
+    }
 }

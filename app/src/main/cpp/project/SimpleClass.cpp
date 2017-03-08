@@ -36,5 +36,11 @@ int SimpleClass::callMethod(SimpleClass* obj, int value) const {
     return obj ? obj->method2(value) : 0;
 }
 
+std::string SimpleClass::getConstValue() const {
+    return "const value";
+}
+
+
+
 
 

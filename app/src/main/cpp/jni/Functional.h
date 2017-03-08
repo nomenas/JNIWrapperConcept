@@ -50,9 +50,25 @@ void delete_referenced_object(jobject instance) {
 template <typename Class, typename Method, typename... Args>
 auto call(jobject instance, Method method, Args... args) -> decltype(std::bind(method, instance, std::forward<Args>(args)...)()) {
     Proxy<Class>* proxy = get_reference<Proxy<Class>>(instance);
-    if (proxy != nullptr) {
-        return std::bind(method, proxy->subject(), std::forward<Args>(args)...)();
+    return std::bind(method, proxy->subject(), std::forward<Args>(args)...)();
+};
+
+template <typename Class, typename Method, typename... Args>
+jobject call_and_cache(const std::string& cache_key, jobject instance, Method method, Args... args) {
+    jobject return_value = nullptr;
+
+    auto env = JNIEnvFactory::Create();
+    Proxy<Class>* proxy = get_reference<Proxy<Class>>(instance);
+    if (proxy != nullptr && env) {
+        return_value = proxy->get_cache_item(cache_key);
+        if (return_value == nullptr) {
+            return_value = from<decltype(std::bind(method, proxy->subject(), std::forward<Args>(args)...)())>(
+                    std::bind(method, proxy->subject(), std::forward<Args>(args)...)());
+            proxy->add_cache_item(cache_key, env->NewGlobalRef(return_value));
+        }
     }
+
+    return return_value;
 };
 
 #endif //WRAPPERCONCEPT_JNIUTILS_H
