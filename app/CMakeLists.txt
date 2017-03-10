@@ -22,6 +22,7 @@ add_library( # Sets the name of the library.
              # file are automatically included.
              src/main/cpp/native-lib.cpp
              src/main/cpp/jni/JNIInit.cpp
+             src/main/cpp/jni/CallbackTester.jni.cpp
              src/main/cpp/jni/SimpleClass.jni.cpp
              src/main/cpp/project/Callback.h
              src/main/cpp/project/CallbackTester.cpp

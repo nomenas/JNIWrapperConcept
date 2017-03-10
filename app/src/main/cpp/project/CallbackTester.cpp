@@ -15,6 +15,7 @@ void CallbackTester::do_callback(Callback* callback) {
         callback->something_happened(_value);
     }
 }
+
 void CallbackTester::do_callback(std::function<void(int)> callback) {
     callback(_value);
 }

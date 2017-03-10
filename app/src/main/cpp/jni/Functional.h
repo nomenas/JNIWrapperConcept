@@ -12,14 +12,14 @@
 #include "Converters.h"
 
 template <typename... Args>
-void call_java_void_method(jobject instance, char* method, char* signature, Args... args) {
+void call_java_void_method(jobject instance, const char* method, const char* signature, Args... args) {
     auto env = JNIEnvFactory::Create();
     jmethodID methodId = env->GetMethodID(env->GetObjectClass(instance), method, signature);
     env->CallVoidMethod(instance, methodId, args.value()...);
 }
 
 template <typename... Args>
-long call_java_long_method(jobject instance, char* method, char* signature, Args... args) {
+long call_java_long_method(jobject instance, const char* method, const char* signature, Args... args) {
     auto env = JNIEnvFactory::Create();
     jmethodID methodId = env->GetMethodID(env->GetObjectClass(instance), method, signature);
     return to<long>(env->CallLongMethod(instance, methodId, args.value()...));

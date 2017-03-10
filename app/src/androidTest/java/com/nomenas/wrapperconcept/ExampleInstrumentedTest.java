@@ -4,6 +4,9 @@ import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.nomenas.wrapperconcept.project.Callback;
+import com.nomenas.wrapperconcept.project.CallbackTester;
+import com.nomenas.wrapperconcept.project.LambdaCallback;
 import com.nomenas.wrapperconcept.project.SimpleClass;
 
 import org.junit.Test;
@@ -53,5 +56,39 @@ public class ExampleInstrumentedTest {
         assertEquals("const value", result1);
         assertEquals("const value", result2);
         assertEquals(result1.hashCode(), result2.hashCode());
+    }
+
+    private class CallbackImpl implements Callback, LambdaCallback{
+        boolean _called = false;
+
+        @Override
+        public void somethingHappened(int arg) {
+            System.out.println("***** somethingHappend ->" + arg);
+            _called = true;
+        }
+
+        public boolean isCalled() {
+            return _called;
+        }
+
+        @Override
+        public void handle(int arg) {
+            System.out.println("\"***** handle ->" + arg);
+            _called = true;
+        }
+    }
+
+    @Test
+    public void testCallbacks() throws Exception {
+
+        CallbackTester tester = new CallbackTester(14);
+
+        CallbackImpl callback = new CallbackImpl();
+        tester.do_callback((Callback) callback);
+        assertTrue(callback.isCalled());
+
+        CallbackImpl lambdaCallback = new CallbackImpl();
+        tester.do_callback((LambdaCallback) lambdaCallback);
+        assertTrue(lambdaCallback.isCalled());
     }
 }
