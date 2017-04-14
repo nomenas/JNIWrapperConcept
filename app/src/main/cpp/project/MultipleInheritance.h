@@ -18,21 +18,25 @@ public:
 
 class BaseClass {};
 
-class Inheritance : public SimpleInterface {
+class SingleInheritance : public SimpleInterface {
+public:
+    void method() const {
 
+    }
+
+    int method2(int value) {
+        return value + 5;
+    }
 };
 
 class MultipleInheritance : public BaseClass, public SimpleInterface {
-
-};
-
-class InheritanceAndInterface : public BaseClass, public SimpleInterface {
 public:
-    void method1() const override {
+    void method() const {
+
     }
 
-    int method2(int value) override {
-        return value;
+    int method2(int value) {
+        return value + 10;
     }
 };
 

@@ -10,13 +10,10 @@
 #include "ClassInfo.h"
 #include "ObjectConverters.h"
 
-template <>
-const char* ClassInfo<SimpleClass>::Name = "com/nomenas/wrapperconcept/project/SimpleClass";
-template <>
-jclass ClassInfo<SimpleClass>::Class = nullptr;
+REGISTER_CLASS(SimpleClass, "com/nomenas/wrapperconcept/project/SimpleClass")
 
 extern "C" {
-JNIEXPORT void JNICALL
+    JNIEXPORT void JNICALL
     Java_com_nomenas_wrapperconcept_project_SimpleClass_create(JNIEnv*, jobject instance, jint value) {
         set_reference(instance, new SimpleClass(to<int>(value)), true);
     }
