@@ -10,6 +10,9 @@
 
 #include "ClassInfo.h"
 
+using jni_core::JNIEnvFactory;
+using jni_core::ClassInfoRegister;
+
 JavaVM* JNIEnvFactory::JVM = nullptr;
 std::vector<std::function<void(JNIEnv*)>> ClassInfoRegister::class_initialzers;
 
