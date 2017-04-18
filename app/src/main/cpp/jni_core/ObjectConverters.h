@@ -18,7 +18,7 @@ namespace jni_core {
             auto env = JNIEnvFactory::Create();
             jmethodID constructor = env->GetMethodID(ClassInfo<T>::Class, "<init>", "()V");
             _value = env->NewObject(ClassInfo<T>::Class, constructor);
-            set_reference(_value, value, true);
+            set_reference(_value, value, takeOwnership);
         }
 
         Type value() const { return _value; }

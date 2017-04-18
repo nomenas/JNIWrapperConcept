@@ -17,13 +17,13 @@ extern "C" {
     JNIEXPORT jobject JNICALL
     Java_com_nomenas_wrapperconcept_project_SmartPointers_createSharedInteger(JNIEnv *env, jclass type,
                                                                               jint value) {
-        return nullptr;
+        return from<std::shared_ptr<Integer>>(call<SmartPointers>(&SmartPointers::createSharedPointer, value));
     }
 
     JNIEXPORT jobject JNICALL
     Java_com_nomenas_wrapperconcept_project_SmartPointers_createUniqueInteger(JNIEnv *env, jclass type,
                                                                               jint value) {
-        return nullptr;
+        return from<std::unique_ptr<Integer>>(call<SmartPointers>(&SmartPointers::createUniquePointer, value));
     }
 
     JNIEXPORT jobject JNICALL
@@ -35,14 +35,15 @@ extern "C" {
     JNIEXPORT jobject JNICALL
     Java_com_nomenas_wrapperconcept_project_SmartPointers_sumShared(JNIEnv *env, jclass type,
                                                                     jobject arg1, jobject arg2) {
-        return nullptr;
+        return from<std::shared_ptr<Integer>>(call<SmartPointers>(&SmartPointers::sum_shared,
+            to<std::shared_ptr<Integer>>(arg1), to<std::shared_ptr<Integer>>(arg2)));
     }
 
     JNIEXPORT jobject JNICALL
     Java_com_nomenas_wrapperconcept_project_SmartPointers_sumUnique(JNIEnv *env, jclass type,
                                                                     jobject arg1, jobject arg2) {
-        return nullptr;
+        return from<std::unique_ptr<Integer>>(call<SmartPointers>(&SmartPointers::sum_unique,
+            to<std::unique_ptr<Integer>>(arg1), to<std::unique_ptr<Integer>>(arg2)));
     }
-
 }
 

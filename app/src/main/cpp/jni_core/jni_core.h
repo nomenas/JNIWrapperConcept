@@ -8,6 +8,7 @@
 #include "Functional.h"
 #include "ClassInfo.h"
 #include "ObjectConverters.h"
+#include "SmartPointerConverters.h"
 #include "Callback.h"
 
 using jni_core::call_java_void_method;
