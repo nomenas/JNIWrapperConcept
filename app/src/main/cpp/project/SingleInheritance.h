@@ -9,13 +9,8 @@
 
 class SingleInheritance : public SimpleInterface {
 public:
-    void method1() const override {
-        ++_counter;
-    }
-
-    int method2(int value) override {
-        return ++_counter + value;
-    }
+    void method1() const override;
+    int method2(int value) override;
 
 protected:
     mutable int _counter = 0;
@@ -23,9 +18,7 @@ protected:
 
 class SingleInheritanceExt : public SingleInheritance {
 public:
-    int method2(int value) override {
-        return ++_counter + (value * 2);
-    }
+    int method2(int value) override;
 };
 
 #endif //JNIWRAPPERCONCEPT_SINGLEINHERITANCE_H

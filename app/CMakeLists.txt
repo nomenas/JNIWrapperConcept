@@ -30,7 +30,10 @@ add_library( # Sets the name of the library.
              src/main/cpp/jni/MultipleInheritance.jni.cpp
              src/main/cpp/jni/ExtendAndImplement.jni.cpp
              src/main/cpp/project/CallbackTester.cpp
-             src/main/cpp/project/SimpleClass.cpp)
+             src/main/cpp/project/SimpleClass.cpp
+             src/main/cpp/project/SmartPointers.cpp
+             src/main/cpp/project/SingleInheritance.cpp
+             src/main/cpp/project/MultipleInheritance.cpp)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because system libraries are included in the search path by

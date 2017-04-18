@@ -10,27 +10,20 @@
 
 class BaseClass {
 public:
-    int baseClassMethod() {
-        return 5;
-    }
+    int baseClassMethod();
 };
 
 class ExtendAndImplement : public SimpleClass, public SimpleInterface {
 public:
-    ExtendAndImplement() : SimpleClass(12) {}
+    ExtendAndImplement();
 
-    void method1() const {
-
-    }
-
-    int method2(int value) {
-        return value + 10;
-    }
+    void method1() const;
+    int method2(int value);
 };
 
 class MultipleInheritance : public SimpleClass, public BaseClass {
 public:
-    MultipleInheritance() : SimpleClass(12) {}
+    MultipleInheritance();
 };
 
 #endif //WRAPPERCONCEPT_MULTIPLEINHERITANCE_H
