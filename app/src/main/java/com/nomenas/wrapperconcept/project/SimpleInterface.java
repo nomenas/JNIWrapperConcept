@@ -5,4 +5,6 @@ package com.nomenas.wrapperconcept.project;
  */
 
 public interface SimpleInterface {
+    void method1();
+    int method2(int value);
 }

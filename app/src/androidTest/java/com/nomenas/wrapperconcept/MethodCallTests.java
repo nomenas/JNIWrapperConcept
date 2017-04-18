@@ -20,17 +20,22 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
-public class SimpleClassTests {
+public class MethodCallTests {
     static {
         System.loadLibrary("native-lib");
     }
 
     @Test
-    public void testCreateClassImplInstance() throws Exception {
+    public void testCreateAndCallSimpleMethods() throws Exception {
         SimpleClass instance = new SimpleClass(4);
         instance.method1();
         assertEquals(1, instance.method2(1));
         assertEquals("test 1", instance.method3(1, "test"));
+    }
+
+    @Test
+    public void testOwnership() {
+        SimpleClass instance = new SimpleClass(4);
 
         SimpleClass ownedItem = instance.getOwnedItem();
         assertNotNull(ownedItem);
@@ -48,39 +53,5 @@ public class SimpleClassTests {
         assertEquals("const value", result1);
         assertEquals("const value", result2);
         assertEquals(result1.hashCode(), result2.hashCode());
-    }
-
-    private class CallbackImpl implements Callback, LambdaCallback{
-        boolean _called = false;
-
-        @Override
-        public void somethingHappened(int arg) {
-            System.out.println("***** somethingHappend ->" + arg);
-            _called = true;
-        }
-
-        public boolean isCalled() {
-            return _called;
-        }
-
-        @Override
-        public void handle(int arg) {
-            System.out.println("\"***** handle ->" + arg);
-            _called = true;
-        }
-    }
-
-    @Test
-    public void testCallbacks() throws Exception {
-
-        CallbackTester tester = new CallbackTester(14);
-
-        CallbackImpl callback = new CallbackImpl();
-        tester.do_callback((Callback) callback);
-        assertTrue(callback.isCalled());
-
-        CallbackImpl lambdaCallback = new CallbackImpl();
-        tester.do_callback((LambdaCallback) lambdaCallback);
-        assertTrue(lambdaCallback.isCalled());
     }
 }

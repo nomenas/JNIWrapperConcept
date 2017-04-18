@@ -6,38 +6,31 @@
 #define WRAPPERCONCEPT_MULTIPLEINHERITANCE_H
 
 #include "SimpleClass.h"
+#include "SimpleInterface.h"
 
-class SimpleInterface {
+class BaseClass {
 public:
-
-    virtual ~SimpleInterface() = default;
-
-    virtual void method1() const = 0;
-    virtual int method2(int value) = 0;
-};
-
-class BaseClass {};
-
-class SingleInheritance : public SimpleInterface {
-public:
-    void method() const {
-
-    }
-
-    int method2(int value) {
-        return value + 5;
+    int baseClassMethod() {
+        return 5;
     }
 };
 
-class MultipleInheritance : public BaseClass, public SimpleInterface {
+class ExtendAndImplement : public SimpleClass, public SimpleInterface {
 public:
-    void method() const {
+    ExtendAndImplement() : SimpleClass(12) {}
+
+    void method1() const {
 
     }
 
     int method2(int value) {
         return value + 10;
     }
+};
+
+class MultipleInheritance : public SimpleClass, public BaseClass {
+public:
+    MultipleInheritance() : SimpleClass(12) {}
 };
 
 #endif //WRAPPERCONCEPT_MULTIPLEINHERITANCE_H

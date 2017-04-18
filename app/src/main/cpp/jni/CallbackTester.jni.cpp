@@ -3,22 +3,16 @@
 //
 
 #include <jni.h>
+#include "jni_core.h"
 
 #include "../project/CallbackTester.h"
 #include "../project/Callback.h"
 
-#include "Functional.h"
-#include "ClassInfo.h"
-#include "JNICallback.h"
+REGISTER_CLASS(CallbackTester, "com/nomenas/wrapperconcept/project/CallbackTester")
 
-template <>
-const char* ClassInfo<CallbackTester>::Name = "com/nomenas/wrapperconcept/project/SimpleClass";
-template <>
-jclass ClassInfo<CallbackTester>::Class = nullptr;
-
-class CallbackImpl : public JNICallback, public Callback {
+class CallbackImpl : public jni_core::Callback, public Callback {
 public:
-    using JNICallback::JNICallback;
+    using jni_core::Callback::Callback;
 
     void something_happened(int arg) override {
         call_java_void_method(_callback, _name, _signature, from<int>(arg));
@@ -26,9 +20,9 @@ public:
     }
 };
 
-class LambdaCallbackImpl : public JNICallback {
+class LambdaCallbackImpl : public jni_core::Callback {
 public:
-    using JNICallback::JNICallback;
+    using jni_core::Callback::Callback;
     void operator()(int value) {
         call_java_void_method(_callback, _name, _signature, from<int>(value));
         delete this;

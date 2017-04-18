@@ -1,14 +1,7 @@
-//
-// Created by Naum Puroski on 13/04/2017.
-//
-
 #include <jni.h>
+#include "jni_core.h"
 
 #include "../project/SingleInheritance.h"
-
-#include "Functional.h"
-#include "ClassInfo.h"
-#include "ObjectConverters.h"
 
 REGISTER_CLASS(SingleInheritance, "com/nomenas/wrapperconcept/project/SingleInheritance")
 

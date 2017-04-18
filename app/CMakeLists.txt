@@ -21,16 +21,16 @@ add_library( # Sets the name of the library.
              # Associated headers in the same location as their source
              # file are automatically included.
              src/main/cpp/native-lib.cpp
-             src/main/cpp/jni/JNIInit.cpp
+             src/main/cpp/jni_core/JNIInit.cpp
              src/main/cpp/jni/CallbackTester.jni.cpp
+             src/main/cpp/jni/SingleInheritance.jni.cpp
+             src/main/cpp/jni/SingleInheritanceExt.jni.cpp
              src/main/cpp/jni/SimpleClass.jni.cpp
-             src/main/cpp/project/Callback.h
+             src/main/cpp/jni/BaseClass.jni.cpp
+             src/main/cpp/jni/MultipleInheritance.jni.cpp
+             src/main/cpp/jni/ExtendAndImplement.jni.cpp
              src/main/cpp/project/CallbackTester.cpp
-             src/main/cpp/project/CallbackTester.h
-             src/main/cpp/project/SimpleClass.cpp
-             src/main/cpp/project/SimpleClass.h
-             src/main/cpp/project/Inheritance.cpp
-             src/main/cpp/project/Inheritance.h)
+             src/main/cpp/project/SimpleClass.cpp)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because system libraries are included in the search path by
@@ -55,3 +55,5 @@ target_link_libraries( # Specifies the target library.
                        # Links the target library to the log library
                        # included in the NDK.
                        ${log-lib} )
+
+target_include_directories(native-lib PUBLIC src/main/cpp/jni_core)

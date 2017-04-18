@@ -3,17 +3,14 @@
 //
 
 #include <jni.h>
+#include "jni_core.h"
 
 #include "../project/SimpleClass.h"
-
-#include "Functional.h"
-#include "ClassInfo.h"
-#include "ObjectConverters.h"
 
 REGISTER_CLASS(SimpleClass, "com/nomenas/wrapperconcept/project/SimpleClass")
 
 extern "C" {
-    JNIEXPORT void JNICALL
+JNIEXPORT void JNICALL
     Java_com_nomenas_wrapperconcept_project_SimpleClass_create(JNIEnv*, jobject instance, jint value) {
         set_reference(instance, new SimpleClass(to<int>(value)), true);
     }
