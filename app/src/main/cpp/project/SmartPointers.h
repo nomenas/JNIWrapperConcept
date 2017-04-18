@@ -7,7 +7,12 @@
 
 #include <memory>
 
-struct Integer {
+class Integer {
+public:
+    explicit Integer(int value) : _value(value) {}
+    int value() const {return _value;}
+
+private:
     int _value;
 };
 

@@ -47,4 +47,7 @@ namespace jni_core {
     template <> \
     jclass jni_core::ClassInfo<CLASS>::Class = nullptr;
 
+#define IMPORT_REGISTERED_CLASS(CLASS) \
+    extern template struct jni_core::ClassInfo<CLASS>;
+
 #endif //JNIWRAPPERCONCEPT_CLASSINFO_H

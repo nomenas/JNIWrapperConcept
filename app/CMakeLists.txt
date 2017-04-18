@@ -27,8 +27,10 @@ add_library( # Sets the name of the library.
              src/main/cpp/jni/SingleInheritanceExt.jni.cpp
              src/main/cpp/jni/SimpleClass.jni.cpp
              src/main/cpp/jni/BaseClass.jni.cpp
+             src/main/cpp/jni/Integer.jni.cpp
              src/main/cpp/jni/MultipleInheritance.jni.cpp
              src/main/cpp/jni/ExtendAndImplement.jni.cpp
+             src/main/cpp/jni/SmartPointers.jni.cpp
              src/main/cpp/project/CallbackTester.cpp
              src/main/cpp/project/SimpleClass.cpp
              src/main/cpp/project/SmartPointers.cpp

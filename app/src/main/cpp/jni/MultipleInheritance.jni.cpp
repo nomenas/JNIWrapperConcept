@@ -6,7 +6,7 @@
 REGISTER_CLASS(MultipleInheritance, "com/nomenas/wrapperconcept/project/MultipleInheritance")
 
 extern "C" {
-    JNIEXPORT void JNICALL
+JNIEXPORT void JNICALL
     Java_com_nomenas_wrapperconcept_project_MultipleInheritance_create(JNIEnv *env, jobject instance) {
         set_reference(instance, new MultipleInheritance(), true);
     }

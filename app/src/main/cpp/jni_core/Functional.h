@@ -28,22 +28,26 @@ namespace jni_core {
         return to<long>(env->CallLongMethod(instance, methodId, args.value()...));
     }
 
+    template <typename T>
+    Proxy<T>* get_proxy(jobject instance) {
+        return reinterpret_cast<Proxy<T>*>(call_java_long_method(instance, "getReference", "()J"));
+    }
+
     template<typename T>
     T *get_reference(jobject instance) {
-        auto env = JNIEnvFactory::Create();
-        return reinterpret_cast<T *>(call_java_long_method(instance, "getReference", "()J"));
+        auto proxy = get_proxy<T>(instance);
+        return proxy ? proxy->subject() : nullptr;
     }
 
     template<typename T>
     void set_reference(jobject instance, T *obj, bool takeOwnership) {
-        auto env = JNIEnvFactory::Create();
         call_java_void_method(instance, "setReference", "(J)V",
                               from<void *>(new Proxy<T>(obj, takeOwnership)));
     }
 
     template<typename T>
     void delete_referenced_object(jobject instance) {
-        Proxy<T> *proxy = get_reference<Proxy<T>>(instance);
+        auto proxy = get_proxy<T>(instance);
         if (proxy != nullptr) {
             delete proxy;
             proxy = nullptr;
@@ -55,7 +59,7 @@ namespace jni_core {
     auto call(jobject instance, Method method, Args... args) -> decltype(std::bind(method, instance,
                                                                                    std::forward<Args>(
                                                                                            args)...)()) {
-        Proxy<Class> *proxy = get_reference<Proxy<Class>>(instance);
+        auto proxy = get_proxy<Class>(instance);
         return std::bind(method, proxy->subject(), std::forward<Args>(args)...)();
     };
 
@@ -65,7 +69,7 @@ namespace jni_core {
         jobject return_value = nullptr;
 
         auto env = JNIEnvFactory::Create();
-        Proxy<Class> *proxy = get_reference<Proxy<Class>>(instance);
+        Proxy<Class> *proxy = get_proxy<Class>(instance);
         if (proxy != nullptr && env) {
             return_value = proxy->get_cache_item(cache_key);
             if (return_value == nullptr) {
@@ -77,6 +81,11 @@ namespace jni_core {
         }
 
         return return_value;
+    };
+
+    template<typename Class, typename Method, typename... Args>
+    auto call(Method method, Args... args) -> decltype(std::bind(method, std::forward<Args>(args)...)()) {
+        return std::bind(method, std::forward<Args>(args)...)();
     };
 }
 

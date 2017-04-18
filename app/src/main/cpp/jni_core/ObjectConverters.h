@@ -11,7 +11,7 @@
 
 namespace jni_core {
     template<typename T>
-    struct from<T *> {
+    struct from<T*> {
         using Type = jobject;
 
         from<T *>(T *value, bool takeOwnership) {
@@ -29,11 +29,10 @@ namespace jni_core {
     };
 
     template<typename T>
-    struct to<T *> {
+    struct to<T*> {
         using Type = T *;
 
-        to<T *>(jobject value) {
-            auto env = JNIEnvFactory::Create();
+        to<T*>(jobject value) {
             _value = get_reference<T>(value);
         }
 
