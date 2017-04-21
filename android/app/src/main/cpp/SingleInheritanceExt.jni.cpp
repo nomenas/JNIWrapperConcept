@@ -2,7 +2,7 @@
 #include <jni.h>
 #include "jni_core.h"
 
-#include "../project/SingleInheritance.h"
+#include <SingleInheritance.h>
 
 REGISTER_CLASS(SingleInheritanceExt, "com/nomenas/wrapperconcept/project/SingleInheritanceExt")
 

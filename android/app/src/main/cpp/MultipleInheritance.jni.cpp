@@ -1,7 +1,7 @@
 #include <jni.h>
 #include "jni_core.h"
 
-#include "../project/MultipleInheritance.h"
+#include <MultipleInheritance.h>
 
 REGISTER_CLASS(MultipleInheritance, "com/nomenas/wrapperconcept/project/MultipleInheritance")
 

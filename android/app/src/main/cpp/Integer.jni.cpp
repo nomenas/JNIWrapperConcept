@@ -1,7 +1,7 @@
 #include <jni.h>
 #include "jni_core.h"
 
-#include "../project/SmartPointers.h"
+#include <SmartPointers.h>
 
 REGISTER_CLASS(Integer, "com/nomenas/wrapperconcept/project/Integer")
 

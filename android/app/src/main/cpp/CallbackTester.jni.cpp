@@ -5,8 +5,7 @@
 #include <jni.h>
 #include "jni_core.h"
 
-#include "../project/CallbackTester.h"
-#include "../project/Callback.h"
+#include <CallbackTester.h>
 
 REGISTER_CLASS(CallbackTester, "com/nomenas/wrapperconcept/project/CallbackTester")
 

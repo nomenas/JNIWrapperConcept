@@ -5,7 +5,7 @@
 #include <jni.h>
 #include "jni_core.h"
 
-#include "../project/SimpleClass.h"
+#include <SimpleClass.h>
 
 REGISTER_CLASS(SimpleClass, "com/nomenas/wrapperconcept/project/SimpleClass")
 

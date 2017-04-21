@@ -11,6 +11,9 @@ add_definitions(-std=c++11)
 # You can define multiple libraries, and CMake builds it for you.
 # Gradle automatically packages shared libraries with your APK.
 
+set(JNI_CORE_PATH ../../framework/jni_core)
+set(PROJECT_PATH ../../project)
+
 add_library( # Sets the name of the library.
              native-lib
 
@@ -20,22 +23,21 @@ add_library( # Sets the name of the library.
              # Provides a relative path to your source file(s).
              # Associated headers in the same location as their source
              # file are automatically included.
-             src/main/cpp/native-lib.cpp
-             src/main/cpp/jni_core/JNIInit.cpp
-             src/main/cpp/jni/CallbackTester.jni.cpp
-             src/main/cpp/jni/SingleInheritance.jni.cpp
-             src/main/cpp/jni/SingleInheritanceExt.jni.cpp
-             src/main/cpp/jni/SimpleClass.jni.cpp
-             src/main/cpp/jni/BaseClass.jni.cpp
-             src/main/cpp/jni/Integer.jni.cpp
-             src/main/cpp/jni/MultipleInheritance.jni.cpp
-             src/main/cpp/jni/ExtendAndImplement.jni.cpp
-             src/main/cpp/jni/SmartPointers.jni.cpp
-             src/main/cpp/project/CallbackTester.cpp
-             src/main/cpp/project/SimpleClass.cpp
-             src/main/cpp/project/SmartPointers.cpp
-             src/main/cpp/project/SingleInheritance.cpp
-             src/main/cpp/project/MultipleInheritance.cpp)
+             ${JNI_CORE_PATH}/JNIInit.cpp
+             ${PROJECT_PATH}/CallbackTester.cpp
+             ${PROJECT_PATH}/SimpleClass.cpp
+             ${PROJECT_PATH}/SmartPointers.cpp
+             ${PROJECT_PATH}/SingleInheritance.cpp
+             ${PROJECT_PATH}/MultipleInheritance.cpp
+             src/main/cpp/CallbackTester.jni.cpp
+             src/main/cpp/SingleInheritance.jni.cpp
+             src/main/cpp/SingleInheritanceExt.jni.cpp
+             src/main/cpp/SimpleClass.jni.cpp
+             src/main/cpp/BaseClass.jni.cpp
+             src/main/cpp/Integer.jni.cpp
+             src/main/cpp/MultipleInheritance.jni.cpp
+             src/main/cpp/ExtendAndImplement.jni.cpp
+             src/main/cpp/SmartPointers.jni.cpp)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because system libraries are included in the search path by
@@ -61,4 +63,4 @@ target_link_libraries( # Specifies the target library.
                        # included in the NDK.
                        ${log-lib} )
 
-target_include_directories(native-lib PUBLIC src/main/cpp/jni_core)
+target_include_directories(native-lib PUBLIC ${JNI_CORE_PATH} ${PROJECT_PATH})
