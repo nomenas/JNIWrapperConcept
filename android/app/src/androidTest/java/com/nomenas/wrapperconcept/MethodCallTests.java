@@ -6,6 +6,7 @@ import android.support.test.runner.AndroidJUnit4;
 
 import com.nomenas.wrapperconcept.project.Callback;
 import com.nomenas.wrapperconcept.project.CallbackTester;
+import com.nomenas.wrapperconcept.project.Integer;
 import com.nomenas.wrapperconcept.project.LambdaCallback;
 import com.nomenas.wrapperconcept.project.SimpleClass;
 
@@ -35,35 +36,36 @@ public class MethodCallTests {
 
     @Test
     public void testOwnership() {
-        SimpleClass instance = new SimpleClass(4);
+        SimpleClass instance = new SimpleClass(2);
 
-        SimpleClass ownedItem = instance.getOwnedItem();
+        Integer ownedItem = instance.getOwnedItem();
         assertNotNull(ownedItem);
-        assertEquals(2, ownedItem.method2(2));
-        assertEquals("ownedItem 2", ownedItem.method3(2, "ownedItem"));
+        assertEquals(2, ownedItem.value());
+        assertEquals(7, instance.callMethod(ownedItem, 5));
 
-        SimpleClass sharedItem = instance.getItemTakeOwnership();
+        Integer sharedItem = instance.getItemTakeOwnership();
         assertNotNull(sharedItem);
-        assertEquals(3, sharedItem.method2(3));
-        assertEquals("sharedItem 3", sharedItem.method3(3, "sharedItem"));
-
-        assertEquals(5, instance.callMethod(sharedItem, 5));
-        String result1 = instance.getConstValue();
-        String result2 = instance.getConstValue();
-        assertEquals("const value", result1);
-        assertEquals("const value", result2);
-        assertEquals(result1.hashCode(), result2.hashCode());
+        assertEquals(2, sharedItem.value());
+        assertEquals(10, instance.callMethod(sharedItem, 8));
     }
 
     @Test
     public void testReturnAndUseObject() {
         SimpleClass instance = new SimpleClass(4);
 
-        SimpleClass obj = instance.getObject();
+        Integer obj = instance.getObject();
         assertNotNull(obj);
-        assertEquals(2, obj.method2(2));
-        assertEquals("obj 1", obj.method3(1, "obj"));
+        assertEquals(4, obj.value());
+        assertEquals(9, instance.testObjectArgMethod(obj, 5));
+    }
 
-        assertEquals(5, obj.testObjectArgMethod(obj, 5));
+    @Test
+    public void testGetAndCache() {
+        SimpleClass instance = new SimpleClass(4);
+        String result1 = instance.getConstValue();
+        String result2 = instance.getConstValue();
+        assertEquals("const value", result1);
+        assertEquals("const value", result2);
+        assertEquals(result1.hashCode(), result2.hashCode());
     }
 }

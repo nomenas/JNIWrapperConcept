@@ -10,12 +10,12 @@ public class SimpleClass extends Object {
     public native int method2(int value);
     public native String method3(int value, String text);
 
-    public native SimpleClass getObject();
-    public native SimpleClass getOwnedItem();
-    public native SimpleClass getItemTakeOwnership();
+    public native Integer getObject();
+    public native Integer getOwnedItem();
+    public native Integer getItemTakeOwnership();
 
-    public native int callMethod(SimpleClass obj, int value);
-    public native int testObjectArgMethod(SimpleClass obj, int value);
+    public native int callMethod(Integer obj, int value);
+    public native int testObjectArgMethod(Integer obj, int value);
 
     public native String getConstValue();
 

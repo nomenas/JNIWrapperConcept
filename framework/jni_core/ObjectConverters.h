@@ -72,13 +72,13 @@ namespace jni_core {
 #define USING_TO_OBJECT_CONVERTER(CLASS) \
 template<> \
 struct to<CLASS> : jni_core::to_base_object<CLASS> { \
-    using jni_core::to_base_object<SimpleClass>::to_base_object; \
+    using jni_core::to_base_object<CLASS>::to_base_object; \
 };
 
 #define USING_FROM_OBJECT_CONVERTER(CLASS) \
 template<> \
 struct from<CLASS> : jni_core::from_base_object<CLASS> { \
-    using jni_core::from_base_object<SimpleClass>::from_base_object; \
+    using jni_core::from_base_object<CLASS>::from_base_object; \
 };
 
 #endif //JNIWRAPPERCONCEPT_OBJECTCONVERTERS_H

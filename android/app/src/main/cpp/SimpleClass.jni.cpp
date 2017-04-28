@@ -9,8 +9,10 @@
 
 REGISTER_CLASS(SimpleClass, "com/nomenas/wrapperconcept/project/SimpleClass")
 
-USING_TO_OBJECT_CONVERTER(SimpleClass)
-USING_FROM_OBJECT_CONVERTER(SimpleClass)
+IMPORT_REGISTERED_CLASS(Integer)
+
+USING_TO_OBJECT_CONVERTER(Integer)
+USING_FROM_OBJECT_CONVERTER(Integer)
 
 extern "C" {
 JNIEXPORT void JNICALL
@@ -40,29 +42,29 @@ JNIEXPORT void JNICALL
 
     JNIEXPORT jobject JNICALL
     Java_com_nomenas_wrapperconcept_project_SimpleClass_getOwnedItem(JNIEnv*, jobject instance) {
-        return from<SimpleClass*>(call<SimpleClass>(instance, &SimpleClass::get_owned_item), false);
+        return from<Integer*>(call<SimpleClass>(instance, &SimpleClass::get_owned_item), false);
     }
 
     JNIEXPORT jobject JNICALL
     Java_com_nomenas_wrapperconcept_project_SimpleClass_getItemTakeOwnership(JNIEnv*, jobject instance) {
-        return from<SimpleClass*>(call<SimpleClass>(instance, &SimpleClass::get_item_take_ownership), true);
+        return from<Integer*>(call<SimpleClass>(instance, &SimpleClass::get_item_take_ownership), true);
     }
 
     JNIEXPORT jobject JNICALL
     Java_com_nomenas_wrapperconcept_project_SimpleClass_getObject(JNIEnv *env, jobject instance) {
-        return from<SimpleClass>(call<SimpleClass>(instance, &SimpleClass::get_object));
+        return from<Integer>(call<SimpleClass>(instance, &SimpleClass::get_object));
     }
 
     JNIEXPORT jint JNICALL
     Java_com_nomenas_wrapperconcept_project_SimpleClass_testObjectArgMethod(JNIEnv *env,
                                                                             jobject instance,
                                                                             jobject obj, jint value) {
-        return from<int>(call<SimpleClass>(instance, &SimpleClass::test_object_arg_method, to<SimpleClass>(obj), to<int>(value)));
+        return from<int>(call<SimpleClass>(instance, &SimpleClass::test_object_arg_method, to<Integer>(obj), to<int>(value)));
     }
 
     JNIEXPORT jint JNICALL
     Java_com_nomenas_wrapperconcept_project_SimpleClass_callMethod(JNIEnv *env, jobject instance, jobject obj, jint value) {
-        return from<int>(call<SimpleClass>(instance, &SimpleClass::callMethod, to<SimpleClass*>(obj), to<int>(value)));
+        return from<int>(call<SimpleClass>(instance, &SimpleClass::callMethod, to<Integer*>(obj), to<int>(value)));
     }
 
     JNIEXPORT jstring JNICALL

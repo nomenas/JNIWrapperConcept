@@ -6,8 +6,7 @@
 
 #include <sstream>
 
-SimpleClass::SimpleClass(int) {
-
+SimpleClass::SimpleClass(int value) : _value(value){
 }
 
 void SimpleClass::method1() const {
@@ -23,29 +22,29 @@ std::string SimpleClass::method3(int value, const std::string& text) {
     return ss.str();
 }
 
-SimpleClass* SimpleClass::get_owned_item() const {
-    static SimpleClass _instance(0);
+Integer SimpleClass::get_object() const {
+    return Integer(_value);
+}
+
+Integer* SimpleClass::get_owned_item() const {
+    static Integer _instance(_value);
     return &_instance;
 }
 
-owner<SimpleClass*> SimpleClass::get_item_take_ownership() const {
-    return new SimpleClass(0);
+owner<Integer*> SimpleClass::get_item_take_ownership() const {
+    return new Integer(_value);
 }
 
-int SimpleClass::callMethod(SimpleClass* obj, int value) const {
-    return obj ? obj->method2(value) : 0;
+int SimpleClass::callMethod(Integer* obj, int value) const {
+    return (obj ? obj->value() : 0) + value;
 }
 
 std::string SimpleClass::getConstValue() const {
     return "const value";
 }
 
-SimpleClass SimpleClass::get_object() const {
-    return SimpleClass(0);
-}
-
-int SimpleClass::test_object_arg_method(SimpleClass obj, int value) const {
-    return obj.method2(value);
+int SimpleClass::test_object_arg_method(Integer obj, int value) const {
+    return obj.value() + value;
 }
 
 
