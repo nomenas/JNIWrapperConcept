@@ -7,6 +7,7 @@
 
 #include "Functional.h"
 #include "ClassInfo.h"
+#include "Converters.h"
 #include "ObjectConverters.h"
 #include "SmartPointerConverters.h"
 #include "Callback.h"

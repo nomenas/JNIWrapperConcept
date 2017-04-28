@@ -19,26 +19,18 @@ namespace jni_core {
     template<typename From, typename To>
     struct to_base {
         using Type = To;
-
         to_base<From, To>(From value) : _value(value) {}
-
         Type value() const { return _value; }
-
         operator Type() const { return _value; }
-
         Type _value;
     };
 
     template<typename From, typename To>
     struct from_base {
         using Type = To;
-
         from_base<From, To>(Type value) : _value(value) {}
-
         Type value() const { return _value; }
-
         operator Type() const { return _value; }
-
         Type _value;
     };
 
@@ -70,7 +62,7 @@ namespace jni_core {
     };
 
     template<>
-    struct to<void *> {
+    struct to<void*> {
         using Type = void *; \
 
 
@@ -87,7 +79,7 @@ namespace jni_core {
     };
 
     template<>
-    struct from<void *> {
+    struct from<void*> {
         using Type = jlong;
 
         template<typename T>

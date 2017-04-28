@@ -5,9 +5,12 @@
 #include <jni.h>
 #include "jni_core.h"
 
-#include <SimpleClass.h>
+#include "SimpleClass.h"
 
 REGISTER_CLASS(SimpleClass, "com/nomenas/wrapperconcept/project/SimpleClass")
+
+USING_TO_OBJECT_CONVERTER(SimpleClass)
+USING_FROM_OBJECT_CONVERTER(SimpleClass)
 
 extern "C" {
 JNIEXPORT void JNICALL
@@ -43,6 +46,18 @@ JNIEXPORT void JNICALL
     JNIEXPORT jobject JNICALL
     Java_com_nomenas_wrapperconcept_project_SimpleClass_getItemTakeOwnership(JNIEnv*, jobject instance) {
         return from<SimpleClass*>(call<SimpleClass>(instance, &SimpleClass::get_item_take_ownership), true);
+    }
+
+    JNIEXPORT jobject JNICALL
+    Java_com_nomenas_wrapperconcept_project_SimpleClass_getObject(JNIEnv *env, jobject instance) {
+        return from<SimpleClass>(call<SimpleClass>(instance, &SimpleClass::get_object));
+    }
+
+    JNIEXPORT jint JNICALL
+    Java_com_nomenas_wrapperconcept_project_SimpleClass_testObjectArgMethod(JNIEnv *env,
+                                                                            jobject instance,
+                                                                            jobject obj, jint value) {
+        return from<int>(call<SimpleClass>(instance, &SimpleClass::test_object_arg_method, to<SimpleClass>(obj), to<int>(value)));
     }
 
     JNIEXPORT jint JNICALL

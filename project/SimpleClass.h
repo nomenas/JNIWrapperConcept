@@ -19,10 +19,12 @@ public:
     int method2(int value);
     std::string method3(int value, const std::string& text);
 
+    SimpleClass get_object() const;
     SimpleClass* get_owned_item() const;
     owner<SimpleClass*> get_item_take_ownership() const;
 
     int callMethod(SimpleClass* obj, int value) const;
+    int test_object_arg_method(SimpleClass obj, int value) const;
 
     std::string getConstValue() const;
 };

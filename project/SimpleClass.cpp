@@ -40,6 +40,14 @@ std::string SimpleClass::getConstValue() const {
     return "const value";
 }
 
+SimpleClass SimpleClass::get_object() const {
+    return SimpleClass(0);
+}
+
+int SimpleClass::test_object_arg_method(SimpleClass obj, int value) const {
+    return obj.method2(value);
+}
+
 
 
 

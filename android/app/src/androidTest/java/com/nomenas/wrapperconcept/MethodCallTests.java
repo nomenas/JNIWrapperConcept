@@ -40,12 +40,12 @@ public class MethodCallTests {
         SimpleClass ownedItem = instance.getOwnedItem();
         assertNotNull(ownedItem);
         assertEquals(2, ownedItem.method2(2));
-        assertEquals("ownedItem 2", instance.method3(2, "ownedItem"));
+        assertEquals("ownedItem 2", ownedItem.method3(2, "ownedItem"));
 
         SimpleClass sharedItem = instance.getItemTakeOwnership();
         assertNotNull(sharedItem);
-        assertEquals(3, ownedItem.method2(3));
-        assertEquals("ownedItem 3", instance.method3(3, "ownedItem"));
+        assertEquals(3, sharedItem.method2(3));
+        assertEquals("sharedItem 3", sharedItem.method3(3, "sharedItem"));
 
         assertEquals(5, instance.callMethod(sharedItem, 5));
         String result1 = instance.getConstValue();
@@ -53,5 +53,17 @@ public class MethodCallTests {
         assertEquals("const value", result1);
         assertEquals("const value", result2);
         assertEquals(result1.hashCode(), result2.hashCode());
+    }
+
+    @Test
+    public void testReturnAndUseObject() {
+        SimpleClass instance = new SimpleClass(4);
+
+        SimpleClass obj = instance.getObject();
+        assertNotNull(obj);
+        assertEquals(2, obj.method2(2));
+        assertEquals("obj 1", obj.method3(1, "obj"));
+
+        assertEquals(5, obj.testObjectArgMethod(obj, 5));
     }
 }
