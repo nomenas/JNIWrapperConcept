@@ -9,7 +9,7 @@
 
 #include "JNIEnvFactory.h"
 
-namespace jni_core {
+namespace wrapper_core {
     class Callback {
     public:
         Callback(jobject callback, const char *name, const char *signature)

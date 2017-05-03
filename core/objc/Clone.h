@@ -5,8 +5,8 @@
 #ifndef JNIWRAPPERCONCEPT_CLONE_H
 #define JNIWRAPPERCONCEPT_CLONE_H
 
-namespace jni_core {
+namespace wrapper_core {
     template <typename T>
     T* clone(const T& instance);
-}  // jni_core
+}  // wrapper_core
 #endif //JNIWRAPPERCONCEPT_CLONE_H

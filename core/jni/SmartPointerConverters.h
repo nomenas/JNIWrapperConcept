@@ -5,11 +5,11 @@
 #ifndef JNIWRAPPERCONCEPT_SMARTPOINTERCONVERTERS_H
 #define JNIWRAPPERCONCEPT_SMARTPOINTERCONVERTERS_H
 
-#include "Converters.h"
+#include "Converter.h"
 #include "ClassInfo.h"
 #include "Functional.h"
 
-namespace jni_core {
+namespace wrapper_core {
     template<typename T>
     struct from<std::shared_ptr<T>> {
         using Type = jobject;

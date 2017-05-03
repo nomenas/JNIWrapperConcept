@@ -7,21 +7,22 @@
 //
 
 #import "OCWInteger.h"
+#import "OCWInteger-internal.h"
 
-#include "Integer.h"
+DEFINE_WRAPPER_METHODS(OCWInteger, Integer)
 
 @implementation OCWInteger
 
 - (instancetype) initWithValue: (int) value {
     self = [super init];
     if (self != nil) {
-//        _value = value;
+        init_proxy(_proxy, value);
     }
     return self;
 }
 
 - (NSInteger) value {
-    return 5;
+    return call<Integer>(_proxy, &Integer::value);
 }
 
 @end

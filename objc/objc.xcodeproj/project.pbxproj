@@ -7,14 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		59268A0D1EB3E3DC0052EC66 /* ObjectHolder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59268A0C1EB3E3DC0052EC66 /* ObjectHolder.cpp */; };
-		59268A0F1EB3E3F30052EC66 /* ObjectHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 59268A0E1EB3E3F30052EC66 /* ObjectHolder.h */; };
+		590CCBB01EB9FD3E007AC143 /* Callback.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBA31EB9FD3E007AC143 /* Callback.h */; };
+		590CCBB11EB9FD3E007AC143 /* CallbackTester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 590CCBA41EB9FD3E007AC143 /* CallbackTester.cpp */; };
+		590CCBB21EB9FD3E007AC143 /* CallbackTester.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBA51EB9FD3E007AC143 /* CallbackTester.h */; };
+		590CCBB31EB9FD3E007AC143 /* Integer.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBA61EB9FD3E007AC143 /* Integer.h */; };
+		590CCBB41EB9FD3E007AC143 /* MultipleInheritance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 590CCBA71EB9FD3E007AC143 /* MultipleInheritance.cpp */; };
+		590CCBB51EB9FD3E007AC143 /* MultipleInheritance.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBA81EB9FD3E007AC143 /* MultipleInheritance.h */; };
+		590CCBB61EB9FD3E007AC143 /* SimpleClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 590CCBA91EB9FD3E007AC143 /* SimpleClass.cpp */; };
+		590CCBB71EB9FD3E007AC143 /* SimpleClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBAA1EB9FD3E007AC143 /* SimpleClass.h */; };
+		590CCBB81EB9FD3E007AC143 /* SimpleInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBAB1EB9FD3E007AC143 /* SimpleInterface.h */; };
+		590CCBB91EB9FD3E007AC143 /* SingleInheritance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 590CCBAC1EB9FD3E007AC143 /* SingleInheritance.cpp */; };
+		590CCBBA1EB9FD3E007AC143 /* SingleInheritance.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBAD1EB9FD3E007AC143 /* SingleInheritance.h */; };
+		590CCBBB1EB9FD3E007AC143 /* SmartPointers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 590CCBAE1EB9FD3E007AC143 /* SmartPointers.cpp */; };
+		590CCBBC1EB9FD3E007AC143 /* SmartPointers.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBAF1EB9FD3E007AC143 /* SmartPointers.h */; };
+		590CCBC51EBA015E007AC143 /* Clone.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBBE1EBA015E007AC143 /* Clone.h */; };
+		590CCBC61EBA015E007AC143 /* Converter.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBBF1EBA015E007AC143 /* Converter.h */; };
+		590CCBC71EBA015E007AC143 /* Functional.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBC01EBA015E007AC143 /* Functional.h */; };
+		590CCBC81EBA015E007AC143 /* objc_core.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBC11EBA015E007AC143 /* objc_core.h */; };
+		590CCBC91EBA015E007AC143 /* ObjectConverters.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBC21EBA015E007AC143 /* ObjectConverters.h */; };
+		590CCBCA1EBA015E007AC143 /* Proxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBC31EBA015E007AC143 /* Proxy.h */; };
+		590CCBCC1EBA1900007AC143 /* Converter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 590CCBCB1EBA1900007AC143 /* Converter.mm */; };
 		5989E6B21EB3BF8A0023D5F6 /* SimpleClassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5989E6B11EB3BF8A0023D5F6 /* SimpleClassTests.m */; };
 		5989E6B41EB3BF8A0023D5F6 /* libobjc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5989E69F1EB3BF520023D5F6 /* libobjc.dylib */; };
 		5989E6BC1EB3C1310023D5F6 /* OCWSimpleClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 5989E6BA1EB3C1310023D5F6 /* OCWSimpleClass.h */; };
 		5989E6BD1EB3C1310023D5F6 /* OCWSimpleClass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5989E6BB1EB3C1310023D5F6 /* OCWSimpleClass.mm */; };
 		5989E6C01EB3C3990023D5F6 /* OCWInteger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5989E6BE1EB3C3990023D5F6 /* OCWInteger.h */; };
 		5989E6C11EB3C3990023D5F6 /* OCWInteger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5989E6BF1EB3C3990023D5F6 /* OCWInteger.mm */; };
+		59A163541EB7D8B6004B6F31 /* OCWInteger-internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 59A163531EB7D8B6004B6F31 /* OCWInteger-internal.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,8 +47,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		59268A0C1EB3E3DC0052EC66 /* ObjectHolder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ObjectHolder.cpp; path = ../framework/objc_core/ObjectHolder.cpp; sourceTree = "<group>"; };
-		59268A0E1EB3E3F30052EC66 /* ObjectHolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ObjectHolder.h; path = ../framework/objc_core/ObjectHolder.h; sourceTree = "<group>"; };
+		590CCBA31EB9FD3E007AC143 /* Callback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Callback.h; path = ../project/Callback.h; sourceTree = "<group>"; };
+		590CCBA41EB9FD3E007AC143 /* CallbackTester.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CallbackTester.cpp; path = ../project/CallbackTester.cpp; sourceTree = "<group>"; };
+		590CCBA51EB9FD3E007AC143 /* CallbackTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CallbackTester.h; path = ../project/CallbackTester.h; sourceTree = "<group>"; };
+		590CCBA61EB9FD3E007AC143 /* Integer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Integer.h; path = ../project/Integer.h; sourceTree = "<group>"; };
+		590CCBA71EB9FD3E007AC143 /* MultipleInheritance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MultipleInheritance.cpp; path = ../project/MultipleInheritance.cpp; sourceTree = "<group>"; };
+		590CCBA81EB9FD3E007AC143 /* MultipleInheritance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultipleInheritance.h; path = ../project/MultipleInheritance.h; sourceTree = "<group>"; };
+		590CCBA91EB9FD3E007AC143 /* SimpleClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SimpleClass.cpp; path = ../project/SimpleClass.cpp; sourceTree = "<group>"; };
+		590CCBAA1EB9FD3E007AC143 /* SimpleClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleClass.h; path = ../project/SimpleClass.h; sourceTree = "<group>"; };
+		590CCBAB1EB9FD3E007AC143 /* SimpleInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleInterface.h; path = ../project/SimpleInterface.h; sourceTree = "<group>"; };
+		590CCBAC1EB9FD3E007AC143 /* SingleInheritance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SingleInheritance.cpp; path = ../project/SingleInheritance.cpp; sourceTree = "<group>"; };
+		590CCBAD1EB9FD3E007AC143 /* SingleInheritance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingleInheritance.h; path = ../project/SingleInheritance.h; sourceTree = "<group>"; };
+		590CCBAE1EB9FD3E007AC143 /* SmartPointers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SmartPointers.cpp; path = ../project/SmartPointers.cpp; sourceTree = "<group>"; };
+		590CCBAF1EB9FD3E007AC143 /* SmartPointers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmartPointers.h; path = ../project/SmartPointers.h; sourceTree = "<group>"; };
+		590CCBBE1EBA015E007AC143 /* Clone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Clone.h; path = ../core/objc/Clone.h; sourceTree = "<group>"; };
+		590CCBBF1EBA015E007AC143 /* Converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Converter.h; path = ../core/objc/Converter.h; sourceTree = "<group>"; };
+		590CCBC01EBA015E007AC143 /* Functional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Functional.h; path = ../core/objc/Functional.h; sourceTree = "<group>"; };
+		590CCBC11EBA015E007AC143 /* objc_core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = objc_core.h; path = ../core/objc/objc_core.h; sourceTree = "<group>"; };
+		590CCBC21EBA015E007AC143 /* ObjectConverters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjectConverters.h; path = ../core/objc/ObjectConverters.h; sourceTree = "<group>"; };
+		590CCBC31EBA015E007AC143 /* Proxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Proxy.h; path = ../core/objc/Proxy.h; sourceTree = "<group>"; };
+		590CCBCB1EBA1900007AC143 /* Converter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Converter.mm; path = ../core/objc/Converter.mm; sourceTree = "<group>"; };
 		5989E69F1EB3BF520023D5F6 /* libobjc.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libobjc.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		5989E6AF1EB3BF8A0023D5F6 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5989E6B11EB3BF8A0023D5F6 /* SimpleClassTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleClassTests.m; sourceTree = "<group>"; };
@@ -38,6 +75,8 @@
 		5989E6BB1EB3C1310023D5F6 /* OCWSimpleClass.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCWSimpleClass.mm; sourceTree = "<group>"; };
 		5989E6BE1EB3C3990023D5F6 /* OCWInteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCWInteger.h; sourceTree = "<group>"; };
 		5989E6BF1EB3C3990023D5F6 /* OCWInteger.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCWInteger.mm; sourceTree = "<group>"; };
+		59A163531EB7D8B6004B6F31 /* OCWInteger-internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OCWInteger-internal.h"; sourceTree = "<group>"; };
+		59A163551EB7E3F6004B6F31 /* OCWSimpleClass-internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCWSimpleClass-internal.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,11 +98,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		590CCBA21EB9FD32007AC143 /* cpp */ = {
+			isa = PBXGroup;
+			children = (
+				590CCBA31EB9FD3E007AC143 /* Callback.h */,
+				590CCBA41EB9FD3E007AC143 /* CallbackTester.cpp */,
+				590CCBA51EB9FD3E007AC143 /* CallbackTester.h */,
+				590CCBA61EB9FD3E007AC143 /* Integer.h */,
+				590CCBA71EB9FD3E007AC143 /* MultipleInheritance.cpp */,
+				590CCBA81EB9FD3E007AC143 /* MultipleInheritance.h */,
+				590CCBA91EB9FD3E007AC143 /* SimpleClass.cpp */,
+				590CCBAA1EB9FD3E007AC143 /* SimpleClass.h */,
+				590CCBAB1EB9FD3E007AC143 /* SimpleInterface.h */,
+				590CCBAC1EB9FD3E007AC143 /* SingleInheritance.cpp */,
+				590CCBAD1EB9FD3E007AC143 /* SingleInheritance.h */,
+				590CCBAE1EB9FD3E007AC143 /* SmartPointers.cpp */,
+				590CCBAF1EB9FD3E007AC143 /* SmartPointers.h */,
+			);
+			name = cpp;
+			sourceTree = "<group>";
+		};
 		59268A101EB3E3FD0052EC66 /* objc_core */ = {
 			isa = PBXGroup;
 			children = (
-				59268A0E1EB3E3F30052EC66 /* ObjectHolder.h */,
-				59268A0C1EB3E3DC0052EC66 /* ObjectHolder.cpp */,
+				590CCBBE1EBA015E007AC143 /* Clone.h */,
+				590CCBBF1EBA015E007AC143 /* Converter.h */,
+				590CCBCB1EBA1900007AC143 /* Converter.mm */,
+				590CCBC01EBA015E007AC143 /* Functional.h */,
+				590CCBC11EBA015E007AC143 /* objc_core.h */,
+				590CCBC21EBA015E007AC143 /* ObjectConverters.h */,
+				590CCBC31EBA015E007AC143 /* Proxy.h */,
 			);
 			name = objc_core;
 			sourceTree = "<group>";
@@ -71,6 +135,7 @@
 		5989E6961EB3BF520023D5F6 = {
 			isa = PBXGroup;
 			children = (
+				590CCBA21EB9FD32007AC143 /* cpp */,
 				59268A101EB3E3FD0052EC66 /* objc_core */,
 				5989E6A11EB3BF520023D5F6 /* objc */,
 				5989E6B01EB3BF8A0023D5F6 /* Tests */,
@@ -90,10 +155,12 @@
 		5989E6A11EB3BF520023D5F6 /* objc */ = {
 			isa = PBXGroup;
 			children = (
+				59A163531EB7D8B6004B6F31 /* OCWInteger-internal.h */,
 				5989E6BA1EB3C1310023D5F6 /* OCWSimpleClass.h */,
 				5989E6BB1EB3C1310023D5F6 /* OCWSimpleClass.mm */,
 				5989E6BE1EB3C3990023D5F6 /* OCWInteger.h */,
 				5989E6BF1EB3C3990023D5F6 /* OCWInteger.mm */,
+				59A163551EB7E3F6004B6F31 /* OCWSimpleClass-internal.h */,
 			);
 			path = objc;
 			sourceTree = "<group>";
@@ -114,9 +181,23 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59268A0F1EB3E3F30052EC66 /* ObjectHolder.h in Headers */,
+				590CCBC71EBA015E007AC143 /* Functional.h in Headers */,
+				590CCBBC1EB9FD3E007AC143 /* SmartPointers.h in Headers */,
+				59A163541EB7D8B6004B6F31 /* OCWInteger-internal.h in Headers */,
+				590CCBCA1EBA015E007AC143 /* Proxy.h in Headers */,
+				590CCBBA1EB9FD3E007AC143 /* SingleInheritance.h in Headers */,
+				590CCBC91EBA015E007AC143 /* ObjectConverters.h in Headers */,
+				590CCBC61EBA015E007AC143 /* Converter.h in Headers */,
+				590CCBB01EB9FD3E007AC143 /* Callback.h in Headers */,
+				590CCBC81EBA015E007AC143 /* objc_core.h in Headers */,
+				590CCBB21EB9FD3E007AC143 /* CallbackTester.h in Headers */,
+				590CCBB71EB9FD3E007AC143 /* SimpleClass.h in Headers */,
+				590CCBB81EB9FD3E007AC143 /* SimpleInterface.h in Headers */,
+				590CCBB51EB9FD3E007AC143 /* MultipleInheritance.h in Headers */,
+				590CCBB31EB9FD3E007AC143 /* Integer.h in Headers */,
 				5989E6BC1EB3C1310023D5F6 /* OCWSimpleClass.h in Headers */,
 				5989E6C01EB3C3990023D5F6 /* OCWInteger.h in Headers */,
+				590CCBC51EBA015E007AC143 /* Clone.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,8 +291,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59268A0D1EB3E3DC0052EC66 /* ObjectHolder.cpp in Sources */,
+				590CCBB61EB9FD3E007AC143 /* SimpleClass.cpp in Sources */,
 				5989E6C11EB3C3990023D5F6 /* OCWInteger.mm in Sources */,
+				590CCBCC1EBA1900007AC143 /* Converter.mm in Sources */,
+				590CCBB91EB9FD3E007AC143 /* SingleInheritance.cpp in Sources */,
+				590CCBBB1EB9FD3E007AC143 /* SmartPointers.cpp in Sources */,
+				590CCBB11EB9FD3E007AC143 /* CallbackTester.cpp in Sources */,
+				590CCBB41EB9FD3E007AC143 /* MultipleInheritance.cpp in Sources */,
 				5989E6BD1EB3C1310023D5F6 /* OCWSimpleClass.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,8 +417,9 @@
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
 				HEADER_SEARCH_PATHS = (
-					../framework/objc_core,
+					../core,
 					../project,
+					../core/objc,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -345,8 +432,9 @@
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
 				HEADER_SEARCH_PATHS = (
-					../framework/objc_core,
+					../core,
 					../project,
+					../core/objc,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

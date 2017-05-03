@@ -5,41 +5,33 @@
 #ifndef JNIWRAPPERCONCEPT_OBJECTCONVERTERS_H
 #define JNIWRAPPERCONCEPT_OBJECTCONVERTERS_H
 
-#include "Converters.h"
+#include "Converter.h"
 #include "ClassInfo.h"
 #include "Functional.h"
 
-namespace jni_core {
+namespace wrapper_core {
     template<typename T>
     struct from<T*> {
         using Type = jobject;
-
         from<T*>(T *value, bool takeOwnership) {
             auto env = JNIEnvFactory::Create();
             jmethodID constructor = env->GetMethodID(ClassInfo<T>::Class, "<init>", "()V");
             _value = env->NewObject(ClassInfo<T>::Class, constructor);
             set_reference(_value, value, takeOwnership);
         }
-
         Type value() const { return _value; }
-
         operator Type() const { return _value; }
-
         Type _value;
     };
 
     template<typename T>
     struct to<T*> {
         using Type = T*;
-
         to<T*>(jobject value) {
             _value = get_reference<T>(value);
         }
-
         Type value() const { return _value; }
-
         operator Type() const { return _value; }
-
         Type _value;
     };
 
@@ -69,16 +61,14 @@ namespace jni_core {
     };
 }
 
-#define USING_TO_OBJECT_CONVERTER(CLASS) \
+#define IMPORT_OBJECT_CONVERTER(CLASS) \
 template<> \
-struct to<CLASS> : jni_core::to_base_object<CLASS> { \
-    using jni_core::to_base_object<CLASS>::to_base_object; \
-};
-
-#define USING_FROM_OBJECT_CONVERTER(CLASS) \
+struct to<CLASS> : wrapper_core::to_base_object<CLASS> { \
+    using wrapper_core::to_base_object<CLASS>::to_base_object; \
+}; \
 template<> \
-struct from<CLASS> : jni_core::from_base_object<CLASS> { \
-    using jni_core::from_base_object<CLASS>::from_base_object; \
+struct from<CLASS> : wrapper_core::from_base_object<CLASS> { \
+    using wrapper_core::from_base_object<CLASS>::from_base_object; \
 };
 
 #endif //JNIWRAPPERCONCEPT_OBJECTCONVERTERS_H

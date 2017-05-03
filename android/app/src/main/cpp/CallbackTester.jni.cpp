@@ -9,9 +9,9 @@
 
 REGISTER_CLASS(CallbackTester, "com/nomenas/wrapperconcept/project/CallbackTester")
 
-class CallbackImpl : public jni_core::Callback, public Callback {
+class CallbackImpl : public wrapper_core::Callback, public Callback {
 public:
-    using jni_core::Callback::Callback;
+    using wrapper_core::Callback::Callback;
 
     void something_happened(int arg) override {
         call_java_void_method(_callback, _name, _signature, from<int>(arg));
@@ -19,9 +19,9 @@ public:
     }
 };
 
-class LambdaCallbackImpl : public jni_core::Callback {
+class LambdaCallbackImpl : public wrapper_core::Callback {
 public:
-    using jni_core::Callback::Callback;
+    using wrapper_core::Callback::Callback;
     void operator()(int value) {
         call_java_void_method(_callback, _name, _signature, from<int>(value));
         delete this;

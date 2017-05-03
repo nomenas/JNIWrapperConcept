@@ -10,9 +10,11 @@
 #include <unordered_map>
 #include <memory>
 #include "JNIEnvFactory.h"
-#include "Clone.h"
 
-namespace jni_core {
+namespace wrapper_core {
+    template <typename T>
+    T* clone(const T& instance);
+
     template<typename T>
     class Proxy {
     public:

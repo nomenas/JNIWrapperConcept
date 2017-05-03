@@ -7,17 +7,17 @@
 
 #include "Functional.h"
 #include "ClassInfo.h"
-#include "Converters.h"
+#include "Converter.h"
 #include "ObjectConverters.h"
 #include "SmartPointerConverters.h"
 #include "Callback.h"
 
-using jni_core::call_java_void_method;
-using jni_core::set_reference;
-using jni_core::delete_referenced_object;
-using jni_core::call;
-using jni_core::call_and_cache;
-using jni_core::from;
-using jni_core::to;
+using wrapper_core::call_java_void_method;
+using wrapper_core::set_reference;
+using wrapper_core::delete_referenced_object;
+using wrapper_core::call;
+using wrapper_core::call_and_cache;
+using wrapper_core::from;
+using wrapper_core::to;
 
 #endif //JNIWRAPPERCONCEPT_JNI_CORE_H

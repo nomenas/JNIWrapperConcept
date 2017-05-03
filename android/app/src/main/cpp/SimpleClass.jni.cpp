@@ -10,9 +10,7 @@
 REGISTER_CLASS(SimpleClass, "com/nomenas/wrapperconcept/project/SimpleClass")
 
 IMPORT_REGISTERED_CLASS(Integer)
-
-USING_TO_OBJECT_CONVERTER(Integer)
-USING_FROM_OBJECT_CONVERTER(Integer)
+IMPORT_OBJECT_CONVERTER(Integer)
 
 extern "C" {
 JNIEXPORT void JNICALL

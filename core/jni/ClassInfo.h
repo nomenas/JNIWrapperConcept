@@ -9,7 +9,7 @@
 #include <functional>
 #include <vector>
 
-namespace jni_core {
+namespace wrapper_core {
     template<typename T>
     struct ClassInfo {
         static const char *Name;
@@ -43,11 +43,11 @@ namespace jni_core {
 
 #define REGISTER_CLASS(CLASS, PATH) \
     template <> \
-    const char* jni_core::ClassInfo<CLASS>::Name = jni_core::ClassInfoRegister::RegisterClass<CLASS>(PATH); \
+    const char* wrapper_core::ClassInfo<CLASS>::Name = wrapper_core::ClassInfoRegister::RegisterClass<CLASS>(PATH); \
     template <> \
-    jclass jni_core::ClassInfo<CLASS>::Class = nullptr;
+    jclass wrapper_core::ClassInfo<CLASS>::Class = nullptr;
 
 #define IMPORT_REGISTERED_CLASS(CLASS) \
-    extern template struct jni_core::ClassInfo<CLASS>;
+    extern template struct wrapper_core::ClassInfo<CLASS>;
 
 #endif //JNIWRAPPERCONCEPT_CLASSINFO_H

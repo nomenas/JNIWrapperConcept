@@ -8,7 +8,7 @@
 #include <jni.h>
 #include <memory>
 
-namespace jni_core {
+namespace wrapper_core {
     using JNIEnvUniquePtr = std::unique_ptr<JNIEnv, std::function<void(JNIEnv*)>>;
 
     struct JNIEnvFactory {

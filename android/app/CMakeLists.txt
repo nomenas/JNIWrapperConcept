@@ -11,7 +11,7 @@ add_definitions(-std=c++11)
 # You can define multiple libraries, and CMake builds it for you.
 # Gradle automatically packages shared libraries with your APK.
 
-set(JNI_CORE_PATH ../../framework/jni_core)
+set(JNI_CORE_PATH ../../core/jni)
 set(PROJECT_PATH ../../project)
 
 add_library( # Sets the name of the library.
@@ -24,6 +24,7 @@ add_library( # Sets the name of the library.
              # Associated headers in the same location as their source
              # file are automatically included.
              ${JNI_CORE_PATH}/JNIInit.cpp
+             ${JNI_CORE_PATH}/Converter.cpp
              ${PROJECT_PATH}/CallbackTester.cpp
              ${PROJECT_PATH}/SimpleClass.cpp
              ${PROJECT_PATH}/SmartPointers.cpp

@@ -9,9 +9,9 @@
 #include <unordered_map>
 
 #include "Proxy.h"
-#include "Converters.h"
+#include "Converter.h"
 
-namespace jni_core {
+namespace wrapper_core {
     template<typename... Args>
     void call_java_void_method(jobject instance, const char *method, const char *signature,
                                Args... args) {
@@ -42,19 +42,19 @@ namespace jni_core {
     template<typename T>
     void set_reference(jobject instance, T *obj, bool takeOwnership) {
         call_java_void_method(instance, "setReference", "(J)V",
-                              from<void *>(new Proxy<T>(obj, takeOwnership)));
+                              from<void*>(new Proxy<T>(obj, takeOwnership)));
     }
 
     template<typename T>
     void set_reference(jobject instance, std::shared_ptr<T> obj) {
         call_java_void_method(instance, "setReference", "(J)V",
-                              from<void *>(new Proxy<T>(obj)));
+                              from<void*>(new Proxy<T>(obj)));
     }
 
     template<typename T>
     void set_reference(jobject instance, std::unique_ptr<T> obj) {
         call_java_void_method(instance, "setReference", "(J)V",
-                              from<void *>(new Proxy<T>(std::move(obj))));
+                              from<void*>(new Proxy<T>(std::move(obj))));
     }
 
     template<typename T>
