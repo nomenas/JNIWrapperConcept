@@ -5,8 +5,7 @@
 
 #include "SimpleClass.h"
 
-
-DEFINE_WRAPPER_METHODS(OCWSimpleClass, SimpleClass)
+DEFINE_WRAPPER(OCWSimpleClass, SimpleClass)
 
 @implementation OCWSimpleClass
 
@@ -31,28 +30,27 @@ DEFINE_WRAPPER_METHODS(OCWSimpleClass, SimpleClass)
 }
 
 -(OCWInteger*) get_object {
-//    return from<Integer>(call<SimpleClass>(_proxy, &SimpleClass::get_object));
-    return nil;
+    return from<Integer>(call<SimpleClass>(_proxy, &SimpleClass::get_object));
 }
 
 -(OCWInteger*) get_owned_item {
-    return nil;
+    return from<Integer*>(call<SimpleClass>(_proxy, &SimpleClass::get_owned_item), false);
 }
 
 -(OCWInteger*) get_item_take_ownership {
-    return nil;
+    return from<Integer*>(call<SimpleClass>(_proxy, &SimpleClass::get_item_take_ownership), true);
 }
 
--(int) callMethodWithObj:(OCWInteger*) obj withValue: value {
-    return 0;
+-(int) callMethodWithPtr:(OCWInteger*) obj withValue: (int) value {
+    return call<SimpleClass>(_proxy, &SimpleClass::call_method_with_ptr, to<Integer*>(obj), value);
 }
 
--(int) testObjectMethod:(OCWInteger*) obj withValue: value {
-    return 0;
+-(int) callMethodWithObj:(OCWInteger*) obj withValue: (int) value {
+    return  call<SimpleClass>(_proxy, &SimpleClass::call_method_with_obj, to<Integer>(obj), value);
 }
 
 -(NSString*) getConstValue {
-    return @"test";
+    return from<std::string>(call<SimpleClass>(_proxy, &SimpleClass::get_const_value));
 }
 
 @end

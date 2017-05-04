@@ -6,6 +6,8 @@
 
 REGISTER_CLASS(SingleInheritanceExt, "com/nomenas/wrapperconcept/project/SingleInheritanceExt")
 
+#include "SingleInheritanceExt.jni.h"
+
 extern "C" {
     JNIEXPORT void JNICALL
     Java_com_nomenas_wrapperconcept_project_SingleInheritanceExt_create(JNIEnv *env, jobject instance) {

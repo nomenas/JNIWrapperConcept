@@ -101,4 +101,15 @@ namespace wrapper_core {
     };
 }
 
+#define DEFINE_WRAPPER(CLASS) \
+extern template struct wrapper_core::ClassInfo<CLASS>; \
+template<> \
+struct to<CLASS> : wrapper_core::to_base_object<CLASS> { \
+    using wrapper_core::to_base_object<CLASS>::to_base_object; \
+}; \
+template<> \
+struct from<CLASS> : wrapper_core::from_base_object<CLASS> { \
+    using wrapper_core::from_base_object<CLASS>::from_base_object; \
+};
+
 #endif //WRAPPERCONCEPT_JNIUTILS_H

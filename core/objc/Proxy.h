@@ -8,9 +8,12 @@
 #include <string>
 #include <unordered_map>
 #include <memory>
-#include "Clone.h"
 
 namespace wrapper_core {
+    
+    template <typename T>
+    T* clone(const T& instance);
+    
     template<typename T>
     class Proxy {
     public:

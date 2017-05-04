@@ -9,7 +9,7 @@
 #include <unordered_map>
 
 #include "Proxy.h"
-#include "Converters.h"
+#include "Converter.h"
 
 
 namespace wrapper_core {
@@ -105,12 +105,61 @@ namespace wrapper_core {
 //    };
 }
 
-#define DECLARE_WRAPPER_CATEGORY(OBJC_CLASS, CPP_CLASS) \
+#define DECLARE_WRAPPER(OBJC_CLASS, CPP_CLASS) \
 @interface OBJC_CLASS (Wrapper) \
 - (id) initWithProxy: (std::shared_ptr<wrapper_core::Proxy<CPP_CLASS>>) proxy; \
-@end
+- (std::shared_ptr<wrapper_core::Proxy<CPP_CLASS>>) get_proxy; \
+@end \
+template<> \
+struct from<CPP_CLASS> { \
+    using Type = OBJC_CLASS; \
+    from<CPP_CLASS>(const CPP_CLASS& value) { \
+        auto proxy = std::make_shared<Proxy<CPP_CLASS>>(new CPP_CLASS{value}, true); \
+        _value = [[Type alloc] initWithProxy:proxy]; \
+    } \
+    Type* value() const { return _value; } \
+    operator Type*() const { return _value; } \
+    Type* _value; \
+}; \
+template<> \
+struct to<CPP_CLASS> { \
+    using Type = CPP_CLASS; \
+    to<CPP_CLASS>(OBJC_CLASS* value) { \
+        auto proxy = [value get_proxy]; \
+        if (proxy) { \
+            _value = proxy->subject(); \
+        } \
+    } \
+    const Type& value() const { return *_value; } \
+    operator const Type&() const { return *_value; } \
+    Type* _value = nullptr; \
+}; \
+template <> \
+struct from<CPP_CLASS*> { \
+    using Type = OBJC_CLASS*; \
+    from<CPP_CLASS*>(CPP_CLASS* value, bool takeOwnership) { \
+        auto proxy = std::make_shared<Proxy<CPP_CLASS>>(value, takeOwnership); \
+        _value = [[OBJC_CLASS alloc] initWithProxy:proxy]; \
+    } \
+    Type value() const { return _value; } \
+    operator Type() const { return _value; } \
+    Type _value; \
+}; \
+template<> \
+struct to<CPP_CLASS*> { \
+    using Type = CPP_CLASS*; \
+    to<CPP_CLASS*>(OBJC_CLASS* value) { \
+        auto proxy = [value get_proxy]; \
+        if (proxy) { \
+            _value = proxy->subject(); \
+        } \
+    } \
+    Type value() const { return _value; } \
+    operator Type() const { return _value; } \
+    Type _value; \
+};
 
-#define DEFINE_WRAPPER_METHODS(OBJC_CLASS, CPP_CLASS) \
+#define DEFINE_WRAPPER(OBJC_CLASS, CPP_CLASS) \
 @interface OBJC_CLASS () \
 @property (nonatomic) std::shared_ptr<wrapper_core::Proxy<CPP_CLASS>> proxy; \
 @end \
@@ -122,6 +171,9 @@ self.proxy = proxy; \
 } \
 return self; \
 } \
+- (std::shared_ptr<wrapper_core::Proxy<CPP_CLASS>>) get_proxy {\
+return self.proxy;\
+}\
 @end
 
 #endif //WRAPPERCONCEPT_JNIUTILS_H

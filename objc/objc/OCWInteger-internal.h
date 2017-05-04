@@ -9,5 +9,4 @@
 #include "objc_core.h"
 #include "Integer.h"
 
-DECLARE_WRAPPER_CATEGORY(OCWInteger, Integer)
-
+DECLARE_WRAPPER(OCWInteger, Integer)

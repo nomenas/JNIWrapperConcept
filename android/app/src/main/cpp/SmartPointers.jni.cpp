@@ -5,7 +5,8 @@
 
 REGISTER_CLASS(SmartPointers, "com/nomenas/wrapperconcept/project/SmartPointers")
 
-IMPORT_REGISTERED_CLASS(Integer)
+#include "Integer.jni.h"
+#include "SmartPointers.jni.h"
 
 extern "C" {
     JNIEXPORT jobject JNICALL

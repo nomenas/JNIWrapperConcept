@@ -5,6 +5,8 @@
 
 REGISTER_CLASS(ExtendAndImplement, "com/nomenas/wrapperconcept/project/ExtendAndImplement")
 
+#include "ExtendAndImplement.jni.h"
+
 extern "C" {
     JNIEXPORT void JNICALL
     Java_com_nomenas_wrapperconcept_project_ExtendAndImplement_create(JNIEnv *env, jobject instance) {

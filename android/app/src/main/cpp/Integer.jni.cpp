@@ -5,6 +5,8 @@
 
 REGISTER_CLASS(Integer, "com/nomenas/wrapperconcept/project/Integer")
 
+#include "Integer.jni.h"
+
 // in case when user wants to use unique_ptr from row pointer it has to provide this type of API
 namespace wrapper_core {
     template <>

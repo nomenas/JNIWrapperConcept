@@ -14,8 +14,8 @@
 -(OCWInteger*) get_owned_item;
 -(OCWInteger*) get_item_take_ownership;
 
--(int) callMethodWithObj:(OCWInteger*) obj withValue: value;
--(int) testObjectMethod:(OCWInteger*) obj withValue: value;
+-(int) callMethodWithPtr:(OCWInteger*) obj withValue: (int) value;
+-(int) callMethodWithObj:(OCWInteger*) obj withValue: (int) value;
 
 -(NSString*) getConstValue;
 

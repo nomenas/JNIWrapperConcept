@@ -9,6 +9,8 @@
 
 REGISTER_CLASS(CallbackTester, "com/nomenas/wrapperconcept/project/CallbackTester")
 
+#include "CallbackTester.jni.h"
+
 class CallbackImpl : public wrapper_core::Callback, public Callback {
 public:
     using wrapper_core::Callback::Callback;

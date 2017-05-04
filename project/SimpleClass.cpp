@@ -35,15 +35,15 @@ owner<Integer*> SimpleClass::get_item_take_ownership() const {
     return new Integer(_value);
 }
 
-int SimpleClass::callMethod(Integer* obj, int value) const {
+int SimpleClass::call_method_with_ptr(Integer* obj, int value) const {
     return (obj ? obj->value() : 0) + value;
 }
 
-std::string SimpleClass::getConstValue() const {
+std::string SimpleClass::get_const_value() const {
     return "const value";
 }
 
-int SimpleClass::test_object_arg_method(Integer obj, int value) const {
+int SimpleClass::call_method_with_obj(Integer obj, int value) const {
     return obj.value() + value;
 }
 

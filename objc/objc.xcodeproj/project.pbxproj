@@ -20,11 +20,9 @@
 		590CCBBA1EB9FD3E007AC143 /* SingleInheritance.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBAD1EB9FD3E007AC143 /* SingleInheritance.h */; };
 		590CCBBB1EB9FD3E007AC143 /* SmartPointers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 590CCBAE1EB9FD3E007AC143 /* SmartPointers.cpp */; };
 		590CCBBC1EB9FD3E007AC143 /* SmartPointers.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBAF1EB9FD3E007AC143 /* SmartPointers.h */; };
-		590CCBC51EBA015E007AC143 /* Clone.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBBE1EBA015E007AC143 /* Clone.h */; };
 		590CCBC61EBA015E007AC143 /* Converter.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBBF1EBA015E007AC143 /* Converter.h */; };
 		590CCBC71EBA015E007AC143 /* Functional.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBC01EBA015E007AC143 /* Functional.h */; };
 		590CCBC81EBA015E007AC143 /* objc_core.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBC11EBA015E007AC143 /* objc_core.h */; };
-		590CCBC91EBA015E007AC143 /* ObjectConverters.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBC21EBA015E007AC143 /* ObjectConverters.h */; };
 		590CCBCA1EBA015E007AC143 /* Proxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 590CCBC31EBA015E007AC143 /* Proxy.h */; };
 		590CCBCC1EBA1900007AC143 /* Converter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 590CCBCB1EBA1900007AC143 /* Converter.mm */; };
 		5989E6B21EB3BF8A0023D5F6 /* SimpleClassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5989E6B11EB3BF8A0023D5F6 /* SimpleClassTests.m */; };
@@ -60,11 +58,9 @@
 		590CCBAD1EB9FD3E007AC143 /* SingleInheritance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingleInheritance.h; path = ../project/SingleInheritance.h; sourceTree = "<group>"; };
 		590CCBAE1EB9FD3E007AC143 /* SmartPointers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SmartPointers.cpp; path = ../project/SmartPointers.cpp; sourceTree = "<group>"; };
 		590CCBAF1EB9FD3E007AC143 /* SmartPointers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmartPointers.h; path = ../project/SmartPointers.h; sourceTree = "<group>"; };
-		590CCBBE1EBA015E007AC143 /* Clone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Clone.h; path = ../core/objc/Clone.h; sourceTree = "<group>"; };
 		590CCBBF1EBA015E007AC143 /* Converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Converter.h; path = ../core/objc/Converter.h; sourceTree = "<group>"; };
 		590CCBC01EBA015E007AC143 /* Functional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Functional.h; path = ../core/objc/Functional.h; sourceTree = "<group>"; };
 		590CCBC11EBA015E007AC143 /* objc_core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = objc_core.h; path = ../core/objc/objc_core.h; sourceTree = "<group>"; };
-		590CCBC21EBA015E007AC143 /* ObjectConverters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjectConverters.h; path = ../core/objc/ObjectConverters.h; sourceTree = "<group>"; };
 		590CCBC31EBA015E007AC143 /* Proxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Proxy.h; path = ../core/objc/Proxy.h; sourceTree = "<group>"; };
 		590CCBCB1EBA1900007AC143 /* Converter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Converter.mm; path = ../core/objc/Converter.mm; sourceTree = "<group>"; };
 		5989E69F1EB3BF520023D5F6 /* libobjc.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libobjc.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,12 +117,10 @@
 		59268A101EB3E3FD0052EC66 /* objc_core */ = {
 			isa = PBXGroup;
 			children = (
-				590CCBBE1EBA015E007AC143 /* Clone.h */,
 				590CCBBF1EBA015E007AC143 /* Converter.h */,
 				590CCBCB1EBA1900007AC143 /* Converter.mm */,
 				590CCBC01EBA015E007AC143 /* Functional.h */,
 				590CCBC11EBA015E007AC143 /* objc_core.h */,
-				590CCBC21EBA015E007AC143 /* ObjectConverters.h */,
 				590CCBC31EBA015E007AC143 /* Proxy.h */,
 			);
 			name = objc_core;
@@ -186,7 +180,6 @@
 				59A163541EB7D8B6004B6F31 /* OCWInteger-internal.h in Headers */,
 				590CCBCA1EBA015E007AC143 /* Proxy.h in Headers */,
 				590CCBBA1EB9FD3E007AC143 /* SingleInheritance.h in Headers */,
-				590CCBC91EBA015E007AC143 /* ObjectConverters.h in Headers */,
 				590CCBC61EBA015E007AC143 /* Converter.h in Headers */,
 				590CCBB01EB9FD3E007AC143 /* Callback.h in Headers */,
 				590CCBC81EBA015E007AC143 /* objc_core.h in Headers */,
@@ -197,7 +190,6 @@
 				590CCBB31EB9FD3E007AC143 /* Integer.h in Headers */,
 				5989E6BC1EB3C1310023D5F6 /* OCWSimpleClass.h in Headers */,
 				5989E6C01EB3C3990023D5F6 /* OCWInteger.h in Headers */,
-				590CCBC51EBA015E007AC143 /* Clone.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

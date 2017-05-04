@@ -11,12 +11,12 @@
 
 namespace wrapper_core {
     template <>
-    std::string convert<NSString*, std::string>(NSString* instance) {
+    std::string convert<NSString*, std::string>(NSString*__strong const& instance) {
         return [instance UTF8String];
     }
     
     template <>
-    NSString* convert<const std::string&, NSString*>(const std::string& instance) {
+    NSString* convert<std::string, NSString*>(const std::string& instance) {
         return [NSString stringWithUTF8String:instance.c_str()];;
     }
 }

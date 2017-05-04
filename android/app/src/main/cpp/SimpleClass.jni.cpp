@@ -9,8 +9,8 @@
 
 REGISTER_CLASS(SimpleClass, "com/nomenas/wrapperconcept/project/SimpleClass")
 
-IMPORT_REGISTERED_CLASS(Integer)
-IMPORT_OBJECT_CONVERTER(Integer)
+#include "SimpleClass.jni.h"
+#include "Integer.jni.h"
 
 extern "C" {
 JNIEXPORT void JNICALL
@@ -54,19 +54,19 @@ JNIEXPORT void JNICALL
     }
 
     JNIEXPORT jint JNICALL
-    Java_com_nomenas_wrapperconcept_project_SimpleClass_testObjectArgMethod(JNIEnv *env,
+    Java_com_nomenas_wrapperconcept_project_SimpleClass_callMethodWithObj(JNIEnv *env,
                                                                             jobject instance,
                                                                             jobject obj, jint value) {
-        return from<int>(call<SimpleClass>(instance, &SimpleClass::test_object_arg_method, to<Integer>(obj), to<int>(value)));
+        return from<int>(call<SimpleClass>(instance, &SimpleClass::call_method_with_obj, to<Integer>(obj), to<int>(value)));
     }
 
     JNIEXPORT jint JNICALL
-    Java_com_nomenas_wrapperconcept_project_SimpleClass_callMethod(JNIEnv *env, jobject instance, jobject obj, jint value) {
-        return from<int>(call<SimpleClass>(instance, &SimpleClass::callMethod, to<Integer*>(obj), to<int>(value)));
+    Java_com_nomenas_wrapperconcept_project_SimpleClass_callMethodWithPtr(JNIEnv *env, jobject instance, jobject obj, jint value) {
+        return from<int>(call<SimpleClass>(instance, &SimpleClass::call_method_with_ptr, to<Integer*>(obj), to<int>(value)));
     }
 
     JNIEXPORT jstring JNICALL
     Java_com_nomenas_wrapperconcept_project_SimpleClass_getConstValue(JNIEnv *env, jobject instance) {
-        return static_cast<jstring>(call_and_cache<SimpleClass>("getConstValue", instance, &SimpleClass::getConstValue));
+        return static_cast<jstring>(call_and_cache<SimpleClass>("getConstValue", instance, &SimpleClass::get_const_value));
     }
 }

@@ -47,7 +47,4 @@ namespace wrapper_core {
     template <> \
     jclass wrapper_core::ClassInfo<CLASS>::Class = nullptr;
 
-#define IMPORT_REGISTERED_CLASS(CLASS) \
-    extern template struct wrapper_core::ClassInfo<CLASS>;
-
 #endif //JNIWRAPPERCONCEPT_CLASSINFO_H

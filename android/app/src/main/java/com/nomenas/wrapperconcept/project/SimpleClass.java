@@ -14,8 +14,8 @@ public class SimpleClass extends Object {
     public native Integer getOwnedItem();
     public native Integer getItemTakeOwnership();
 
-    public native int callMethod(Integer obj, int value);
-    public native int testObjectArgMethod(Integer obj, int value);
+    public native int callMethodWithPtr(Integer obj, int value);
+    public native int callMethodWithObj(Integer obj, int value);
 
     public native String getConstValue();
 

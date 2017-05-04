@@ -9,4 +9,4 @@
 #include "objc_core.h"
 #include "SimpleClass.h"
 
-DECLARE_WRAPPER_CATEGORY(OCWSimpleClass, SimpleClass)
+DECLARE_WRAPPER(OCWSimpleClass, SimpleClass)

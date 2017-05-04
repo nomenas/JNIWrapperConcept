@@ -1,15 +1,11 @@
 #include "Converter.h"
 
-#define DEFINE_COMPATIBLE_CONVERTER(T1, T2) \
-template<> \
-T2 convert<T1, T2>(const T1& value) { \
-    return value; \
-}
+#include "JNIEnvFactory.h"
 
 namespace wrapper_core {
 
-    DEFINE_COMPATIBLE_CONVERTER(int, jint);
-    DEFINE_COMPATIBLE_CONVERTER(long long, long);
+    DEFINE_DEFAULT_CONVERT_FUNCTION(int, jint);
+    DEFINE_DEFAULT_CONVERT_FUNCTION(long long, long);
 
     template<>
     std::string convert<jstring, std::string>(const jstring& value) {

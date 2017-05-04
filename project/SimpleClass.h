@@ -25,10 +25,10 @@ public:
     Integer* get_owned_item() const;
     owner<Integer*> get_item_take_ownership() const;
 
-    int callMethod(Integer* obj, int value) const;
-    int test_object_arg_method(Integer obj, int value) const;
+    int call_method_with_ptr(Integer* obj, int value) const;
+    int call_method_with_obj(Integer obj, int value) const;
 
-    std::string getConstValue() const;
+    std::string get_const_value() const;
 
 private:
     int _value;

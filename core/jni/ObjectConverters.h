@@ -5,9 +5,6 @@
 #ifndef JNIWRAPPERCONCEPT_OBJECTCONVERTERS_H
 #define JNIWRAPPERCONCEPT_OBJECTCONVERTERS_H
 
-#include "Converter.h"
-#include "ClassInfo.h"
-#include "Functional.h"
 
 namespace wrapper_core {
     template<typename T>
@@ -38,7 +35,7 @@ namespace wrapper_core {
     template<typename T>
     struct from_base_object {
         using Type = jobject;
-        from_base_object<T>(T value) {
+        from_base_object<T>(const T& value) {
             auto env = JNIEnvFactory::Create();
             jmethodID constructor = env->GetMethodID(ClassInfo<T>::Class, "<init>", "()V");
             _value = env->NewObject(ClassInfo<T>::Class, constructor);
@@ -60,15 +57,5 @@ namespace wrapper_core {
         Type* _value = nullptr;
     };
 }
-
-#define IMPORT_OBJECT_CONVERTER(CLASS) \
-template<> \
-struct to<CLASS> : wrapper_core::to_base_object<CLASS> { \
-    using wrapper_core::to_base_object<CLASS>::to_base_object; \
-}; \
-template<> \
-struct from<CLASS> : wrapper_core::from_base_object<CLASS> { \
-    using wrapper_core::from_base_object<CLASS>::from_base_object; \
-};
 
 #endif //JNIWRAPPERCONCEPT_OBJECTCONVERTERS_H

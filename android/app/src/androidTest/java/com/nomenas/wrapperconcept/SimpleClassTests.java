@@ -41,12 +41,12 @@ public class SimpleClassTests {
         Integer ownedItem = instance.getOwnedItem();
         assertNotNull(ownedItem);
         assertEquals(2, ownedItem.value());
-        assertEquals(7, instance.callMethod(ownedItem, 5));
+        assertEquals(7, instance.callMethodWithPtr(ownedItem, 5));
 
         Integer sharedItem = instance.getItemTakeOwnership();
         assertNotNull(sharedItem);
         assertEquals(2, sharedItem.value());
-        assertEquals(10, instance.callMethod(sharedItem, 8));
+        assertEquals(10, instance.callMethodWithPtr(sharedItem, 8));
     }
 
     @Test
@@ -56,7 +56,7 @@ public class SimpleClassTests {
         Integer obj = instance.getObject();
         assertNotNull(obj);
         assertEquals(4, obj.value());
-        assertEquals(9, instance.testObjectArgMethod(obj, 5));
+        assertEquals(9, instance.callMethodWithObj(obj, 5));
     }
 
     @Test

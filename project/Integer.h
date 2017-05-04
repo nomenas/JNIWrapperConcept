@@ -9,9 +9,9 @@ class Integer {
 public:
     explicit Integer(int value) : _value(value) {}
     int value() const {return _value;}
-
+    
 private:
-    int _value;
+    int _value = 0;
 };
 
 #endif //ANDROID_INTEGER_H

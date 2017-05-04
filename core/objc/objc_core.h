@@ -8,8 +8,7 @@
 #include <memory>
 
 #include "Functional.h"
-#include "Converters.h"
-#include "ObjectConverters.h"
+#include "Converter.h"
 //#include "SmartPointerConverters.h"
 //#include "Callback.h"
 #include "Proxy.h"

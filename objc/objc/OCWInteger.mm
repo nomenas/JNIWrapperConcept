@@ -9,7 +9,7 @@
 #import "OCWInteger.h"
 #import "OCWInteger-internal.h"
 
-DEFINE_WRAPPER_METHODS(OCWInteger, Integer)
+DEFINE_WRAPPER(OCWInteger, Integer)
 
 @implementation OCWInteger
 
