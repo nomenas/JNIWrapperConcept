@@ -24,6 +24,11 @@ namespace wrapper_core {
     };
     
     template<typename Class, typename Method, typename... Args>
+    auto call(Method method, Args... args) -> decltype(std::bind(method, std::forward<Args>(args)...)()) {
+        return std::bind(method, std::forward<Args>(args)...)();
+    };
+    
+    template<typename Class, typename Method, typename... Args>
     NSObject* call_and_cache(const std::string &cache_key, std::shared_ptr<Proxy<Class>> proxy, Method method, Args... args) {
         auto return_value = proxy->get_cache_item(cache_key);
         if (return_value == nullptr) {

@@ -9,7 +9,6 @@
 
 #include "Functional.h"
 #include "Converter.h"
-//#include "SmartPointerConverters.h"
 //#include "Callback.h"
 #include "Proxy.h"
 

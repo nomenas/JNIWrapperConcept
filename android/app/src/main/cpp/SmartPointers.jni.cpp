@@ -12,19 +12,19 @@ extern "C" {
     JNIEXPORT jobject JNICALL
     Java_com_nomenas_wrapperconcept_project_SmartPointers_createRowInteger(JNIEnv *env, jclass type,
                                                                            jint value) {
-        return from<Integer*>(call<SmartPointers>(&SmartPointers::createRowPointer, value), true);
+        return from<Integer*>(call<SmartPointers>(&SmartPointers::create_row_pointer, value), true);
     }
 
     JNIEXPORT jobject JNICALL
     Java_com_nomenas_wrapperconcept_project_SmartPointers_createSharedInteger(JNIEnv *env, jclass type,
                                                                               jint value) {
-        return from<std::shared_ptr<Integer>>(call<SmartPointers>(&SmartPointers::createSharedPointer, value));
+        return from<std::shared_ptr<Integer>>(call<SmartPointers>(&SmartPointers::create_shared_pointer, value));
     }
 
     JNIEXPORT jobject JNICALL
     Java_com_nomenas_wrapperconcept_project_SmartPointers_createUniqueInteger(JNIEnv *env, jclass type,
                                                                               jint value) {
-        return from<std::unique_ptr<Integer>>(call<SmartPointers>(&SmartPointers::createUniquePointer, value));
+        return from<std::unique_ptr<Integer>>(call<SmartPointers>(&SmartPointers::create_unique_pointer, value));
     }
 
     JNIEXPORT jobject JNICALL

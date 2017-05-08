@@ -11,6 +11,13 @@
 
 DEFINE_WRAPPER(OCWInteger, Integer)
 
+namespace wrapper_core {
+    template <>
+    Integer* clone(const Integer& instance) {
+        return new Integer(instance.value());
+    }
+};
+
 @implementation OCWInteger
 
 - (instancetype) initWithValue: (int) value {

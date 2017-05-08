@@ -4,15 +4,15 @@
 
 #include "SmartPointers.h"
 
-Integer *SmartPointers::createRowPointer(int value) {
+Integer *SmartPointers::create_row_pointer(int value) {
     return new Integer{value};
 }
 
-std::shared_ptr<Integer> SmartPointers::createSharedPointer(int value) {
+std::shared_ptr<Integer> SmartPointers::create_shared_pointer(int value) {
     return std::make_shared<Integer>(value);
 }
 
-std::unique_ptr<Integer> SmartPointers::createUniquePointer(int value) {
+std::unique_ptr<Integer> SmartPointers::create_unique_pointer(int value) {
     return std::unique_ptr<Integer>(new Integer{value});
 }
 

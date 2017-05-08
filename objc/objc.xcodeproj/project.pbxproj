@@ -31,6 +31,9 @@
 		5989E6BD1EB3C1310023D5F6 /* OCWSimpleClass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5989E6BB1EB3C1310023D5F6 /* OCWSimpleClass.mm */; };
 		5989E6C01EB3C3990023D5F6 /* OCWInteger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5989E6BE1EB3C3990023D5F6 /* OCWInteger.h */; };
 		5989E6C11EB3C3990023D5F6 /* OCWInteger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5989E6BF1EB3C3990023D5F6 /* OCWInteger.mm */; };
+		5994F40F1EC06EEC00633700 /* OCWSmartPointers.h in Headers */ = {isa = PBXBuildFile; fileRef = 5994F40D1EC06EEC00633700 /* OCWSmartPointers.h */; };
+		5994F4101EC06EEC00633700 /* OCWSmartPointers.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5994F40E1EC06EEC00633700 /* OCWSmartPointers.mm */; };
+		5994F4151EC0A4BF00633700 /* SmartPointersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5994F4141EC0A4BF00633700 /* SmartPointersTests.m */; };
 		59A163541EB7D8B6004B6F31 /* OCWInteger-internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 59A163531EB7D8B6004B6F31 /* OCWInteger-internal.h */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +74,10 @@
 		5989E6BB1EB3C1310023D5F6 /* OCWSimpleClass.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCWSimpleClass.mm; sourceTree = "<group>"; };
 		5989E6BE1EB3C3990023D5F6 /* OCWInteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCWInteger.h; sourceTree = "<group>"; };
 		5989E6BF1EB3C3990023D5F6 /* OCWInteger.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCWInteger.mm; sourceTree = "<group>"; };
+		5994F40D1EC06EEC00633700 /* OCWSmartPointers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCWSmartPointers.h; sourceTree = "<group>"; };
+		5994F40E1EC06EEC00633700 /* OCWSmartPointers.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCWSmartPointers.mm; sourceTree = "<group>"; };
+		5994F4111EC0715900633700 /* OCWSmartPointers-internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCWSmartPointers-internal.h"; sourceTree = "<group>"; };
+		5994F4141EC0A4BF00633700 /* SmartPointersTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartPointersTests.m; sourceTree = "<group>"; };
 		59A163531EB7D8B6004B6F31 /* OCWInteger-internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OCWInteger-internal.h"; sourceTree = "<group>"; };
 		59A163551EB7E3F6004B6F31 /* OCWSimpleClass-internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCWSimpleClass-internal.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,6 +162,9 @@
 				5989E6BE1EB3C3990023D5F6 /* OCWInteger.h */,
 				5989E6BF1EB3C3990023D5F6 /* OCWInteger.mm */,
 				59A163551EB7E3F6004B6F31 /* OCWSimpleClass-internal.h */,
+				5994F40D1EC06EEC00633700 /* OCWSmartPointers.h */,
+				5994F40E1EC06EEC00633700 /* OCWSmartPointers.mm */,
+				5994F4111EC0715900633700 /* OCWSmartPointers-internal.h */,
 			);
 			path = objc;
 			sourceTree = "<group>";
@@ -162,6 +172,7 @@
 		5989E6B01EB3BF8A0023D5F6 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				5994F4141EC0A4BF00633700 /* SmartPointersTests.m */,
 				5989E6B11EB3BF8A0023D5F6 /* SimpleClassTests.m */,
 				5989E6B31EB3BF8A0023D5F6 /* Info.plist */,
 			);
@@ -183,6 +194,7 @@
 				590CCBC61EBA015E007AC143 /* Converter.h in Headers */,
 				590CCBB01EB9FD3E007AC143 /* Callback.h in Headers */,
 				590CCBC81EBA015E007AC143 /* objc_core.h in Headers */,
+				5994F40F1EC06EEC00633700 /* OCWSmartPointers.h in Headers */,
 				590CCBB21EB9FD3E007AC143 /* CallbackTester.h in Headers */,
 				590CCBB71EB9FD3E007AC143 /* SimpleClass.h in Headers */,
 				590CCBB81EB9FD3E007AC143 /* SimpleInterface.h in Headers */,
@@ -283,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5994F4101EC06EEC00633700 /* OCWSmartPointers.mm in Sources */,
 				590CCBB61EB9FD3E007AC143 /* SimpleClass.cpp in Sources */,
 				5989E6C11EB3C3990023D5F6 /* OCWInteger.mm in Sources */,
 				590CCBCC1EBA1900007AC143 /* Converter.mm in Sources */,
@@ -299,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5989E6B21EB3BF8A0023D5F6 /* SimpleClassTests.m in Sources */,
+				5994F4151EC0A4BF00633700 /* SmartPointersTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

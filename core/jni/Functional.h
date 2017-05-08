@@ -76,6 +76,11 @@ namespace wrapper_core {
     };
 
     template<typename Class, typename Method, typename... Args>
+    auto call(Method method, Args... args) -> decltype(std::bind(method, std::forward<Args>(args)...)()) {
+        return std::bind(method, std::forward<Args>(args)...)();
+    };
+
+    template<typename Class, typename Method, typename... Args>
     jobject
     call_and_cache(const std::string &cache_key, jobject instance, Method method, Args... args) {
         jobject return_value = nullptr;
@@ -93,11 +98,6 @@ namespace wrapper_core {
         }
 
         return return_value;
-    };
-
-    template<typename Class, typename Method, typename... Args>
-    auto call(Method method, Args... args) -> decltype(std::bind(method, std::forward<Args>(args)...)()) {
-        return std::bind(method, std::forward<Args>(args)...)();
     };
 }
 
