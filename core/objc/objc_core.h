@@ -15,7 +15,7 @@
 
 using wrapper_core::init_proxy;
 using wrapper_core::call;
-//using wrapper_core::call_and_cache;
+using wrapper_core::call_and_cache;
 using wrapper_core::from;
 using wrapper_core::to;
 using wrapper_core::Proxy;

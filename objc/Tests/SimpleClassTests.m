@@ -44,8 +44,12 @@
     XCTAssertEqual(5, obj.value);
 }
 
-- (void) testConstString {
+- (void) testConstStringAndCache {
     OCWSimpleClass* simpleObj = [[OCWSimpleClass alloc] initWithValue: 5];
+    NSString* constValue1 = [simpleObj getConstValue];
+    NSString* constValue2 = [simpleObj getConstValue];
+    XCTAssertNotNil(constValue1);
+    XCTAssertEqual(constValue1, constValue2);
     XCTAssertTrue([[simpleObj getConstValue] isEqualToString:@"const value"]);
 }
 

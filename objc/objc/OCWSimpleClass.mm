@@ -50,7 +50,7 @@ DEFINE_WRAPPER(OCWSimpleClass, SimpleClass)
 }
 
 -(NSString*) getConstValue {
-    return from<std::string>(call<SimpleClass>(_proxy, &SimpleClass::get_const_value));
+    return static_cast<NSString*>(call_and_cache<SimpleClass>("getConstValue", _proxy, &SimpleClass::get_const_value));
 }
 
 @end

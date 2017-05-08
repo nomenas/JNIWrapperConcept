@@ -52,11 +52,11 @@ namespace wrapper_core {
             return std::move(return_value);
         }
 
-        void add_cache_item(const std::string &key, void* value) {
+        void add_cache_item(const std::string &key, NSObject*__strong value) {
             _cache[key] = value;
         }
 
-        void* get_cache_item(const std::string &key) const {
+        NSObject* get_cache_item(const std::string &key) const {
             auto iter = _cache.find(key);
             return iter != _cache.end() ? iter->second : nullptr;
         }
@@ -66,7 +66,7 @@ namespace wrapper_core {
         bool _is_owner = false;
         std::shared_ptr<T> _shared_ptr;
         std::unique_ptr<T> _unique_ptr;
-        std::unordered_map<std::string, void*> _cache;
+        std::unordered_map<std::string, NSObject*> _cache;
     };
 }
 
