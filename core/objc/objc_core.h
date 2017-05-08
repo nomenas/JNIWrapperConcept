@@ -9,7 +9,6 @@
 
 #include "Functional.h"
 #include "Converter.h"
-//#include "Callback.h"
 #include "Proxy.h"
 
 using wrapper_core::init_proxy;

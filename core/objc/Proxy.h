@@ -8,6 +8,7 @@
 #include <string>
 #include <unordered_map>
 #include <memory>
+#include <mutex>
 
 namespace wrapper_core {
     
@@ -53,10 +54,12 @@ namespace wrapper_core {
         }
 
         void add_cache_item(const std::string &key, NSObject*__strong value) {
+            std::lock_guard<std::mutex> lock{_cache_mutex};
             _cache[key] = value;
         }
 
         NSObject* get_cache_item(const std::string &key) const {
+            std::lock_guard<std::mutex> lock{_cache_mutex};
             auto iter = _cache.find(key);
             return iter != _cache.end() ? iter->second : nullptr;
         }
@@ -66,6 +69,7 @@ namespace wrapper_core {
         bool _is_owner = false;
         std::shared_ptr<T> _shared_ptr;
         std::unique_ptr<T> _unique_ptr;
+        mutable std::mutex _cache_mutex;
         std::unordered_map<std::string, NSObject*> _cache;
     };
 }

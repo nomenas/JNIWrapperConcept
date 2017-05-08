@@ -6,6 +6,10 @@
 #include "CallbackTester.h"
 #include "SimpleClass.h"
 
+CallbackTester::CallbackTester() : _value(0) {
+    
+}
+
 CallbackTester::CallbackTester(int value) : _value(value){
 
 }

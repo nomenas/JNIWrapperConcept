@@ -10,6 +10,7 @@
 
 class CallbackTester {
 public:
+    CallbackTester();
     CallbackTester(int value);
 
     void do_callback(Callback* callback);

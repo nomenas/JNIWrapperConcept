@@ -5,10 +5,13 @@
 #ifndef JNIWRAPPERCONCEPT_PROXY_H
 #define JNIWRAPPERCONCEPT_PROXY_H
 
-#include <string>
 #include <jni.h>
+
+#include <string>
+#include <mutex>
 #include <unordered_map>
 #include <memory>
+
 #include "JNIEnvFactory.h"
 
 namespace wrapper_core {
@@ -59,10 +62,12 @@ namespace wrapper_core {
         }
 
         void add_cache_item(const std::string &key, jobject value) {
+            std::lock_guard<std::mutex> lock{_cache_mutex};
             _cache[key] = value;
         }
 
         jobject get_cache_item(const std::string &key) const {
+            std::lock_guard<std::mutex> lock{_cache_mutex};
             auto iter = _cache.find(key);
             return iter != _cache.end() ? iter->second : nullptr;
         }
@@ -72,6 +77,7 @@ namespace wrapper_core {
         bool _is_owner = false;
         std::shared_ptr<T> _shared_ptr;
         std::unique_ptr<T> _unique_ptr;
+        mutable std::mutex _cache_mutex;
         std::unordered_map<std::string, jobject> _cache;
     };
 }

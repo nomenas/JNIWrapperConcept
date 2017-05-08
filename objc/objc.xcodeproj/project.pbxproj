@@ -34,6 +34,10 @@
 		5994F40F1EC06EEC00633700 /* OCWSmartPointers.h in Headers */ = {isa = PBXBuildFile; fileRef = 5994F40D1EC06EEC00633700 /* OCWSmartPointers.h */; };
 		5994F4101EC06EEC00633700 /* OCWSmartPointers.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5994F40E1EC06EEC00633700 /* OCWSmartPointers.mm */; };
 		5994F4151EC0A4BF00633700 /* SmartPointersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5994F4141EC0A4BF00633700 /* SmartPointersTests.m */; };
+		5994F4181EC0AA5A00633700 /* OCWCallbackTester.h in Headers */ = {isa = PBXBuildFile; fileRef = 5994F4161EC0AA5A00633700 /* OCWCallbackTester.h */; };
+		5994F4191EC0AA5A00633700 /* OCWCallbackTester.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5994F4171EC0AA5A00633700 /* OCWCallbackTester.mm */; };
+		5994F41C1EC0AACC00633700 /* OCWCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 5994F41B1EC0AACC00633700 /* OCWCallback.h */; };
+		5994F41E1EC0AFDA00633700 /* CallbackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5994F41D1EC0AFDA00633700 /* CallbackTests.m */; };
 		59A163541EB7D8B6004B6F31 /* OCWInteger-internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 59A163531EB7D8B6004B6F31 /* OCWInteger-internal.h */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +82,11 @@
 		5994F40E1EC06EEC00633700 /* OCWSmartPointers.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCWSmartPointers.mm; sourceTree = "<group>"; };
 		5994F4111EC0715900633700 /* OCWSmartPointers-internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCWSmartPointers-internal.h"; sourceTree = "<group>"; };
 		5994F4141EC0A4BF00633700 /* SmartPointersTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartPointersTests.m; sourceTree = "<group>"; };
+		5994F4161EC0AA5A00633700 /* OCWCallbackTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCWCallbackTester.h; sourceTree = "<group>"; };
+		5994F4171EC0AA5A00633700 /* OCWCallbackTester.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCWCallbackTester.mm; sourceTree = "<group>"; };
+		5994F41A1EC0AA7200633700 /* OCWCallbackTester-internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCWCallbackTester-internal.h"; sourceTree = "<group>"; };
+		5994F41B1EC0AACC00633700 /* OCWCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCWCallback.h; sourceTree = "<group>"; };
+		5994F41D1EC0AFDA00633700 /* CallbackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallbackTests.m; sourceTree = "<group>"; };
 		59A163531EB7D8B6004B6F31 /* OCWInteger-internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OCWInteger-internal.h"; sourceTree = "<group>"; };
 		59A163551EB7E3F6004B6F31 /* OCWSimpleClass-internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCWSimpleClass-internal.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,6 +174,10 @@
 				5994F40D1EC06EEC00633700 /* OCWSmartPointers.h */,
 				5994F40E1EC06EEC00633700 /* OCWSmartPointers.mm */,
 				5994F4111EC0715900633700 /* OCWSmartPointers-internal.h */,
+				5994F4161EC0AA5A00633700 /* OCWCallbackTester.h */,
+				5994F4171EC0AA5A00633700 /* OCWCallbackTester.mm */,
+				5994F41A1EC0AA7200633700 /* OCWCallbackTester-internal.h */,
+				5994F41B1EC0AACC00633700 /* OCWCallback.h */,
 			);
 			path = objc;
 			sourceTree = "<group>";
@@ -174,6 +187,7 @@
 			children = (
 				5994F4141EC0A4BF00633700 /* SmartPointersTests.m */,
 				5989E6B11EB3BF8A0023D5F6 /* SimpleClassTests.m */,
+				5994F41D1EC0AFDA00633700 /* CallbackTests.m */,
 				5989E6B31EB3BF8A0023D5F6 /* Info.plist */,
 			);
 			path = Tests;
@@ -195,11 +209,13 @@
 				590CCBB01EB9FD3E007AC143 /* Callback.h in Headers */,
 				590CCBC81EBA015E007AC143 /* objc_core.h in Headers */,
 				5994F40F1EC06EEC00633700 /* OCWSmartPointers.h in Headers */,
+				5994F4181EC0AA5A00633700 /* OCWCallbackTester.h in Headers */,
 				590CCBB21EB9FD3E007AC143 /* CallbackTester.h in Headers */,
 				590CCBB71EB9FD3E007AC143 /* SimpleClass.h in Headers */,
 				590CCBB81EB9FD3E007AC143 /* SimpleInterface.h in Headers */,
 				590CCBB51EB9FD3E007AC143 /* MultipleInheritance.h in Headers */,
 				590CCBB31EB9FD3E007AC143 /* Integer.h in Headers */,
+				5994F41C1EC0AACC00633700 /* OCWCallback.h in Headers */,
 				5989E6BC1EB3C1310023D5F6 /* OCWSimpleClass.h in Headers */,
 				5989E6C01EB3C3990023D5F6 /* OCWInteger.h in Headers */,
 			);
@@ -302,6 +318,7 @@
 				590CCBB91EB9FD3E007AC143 /* SingleInheritance.cpp in Sources */,
 				590CCBBB1EB9FD3E007AC143 /* SmartPointers.cpp in Sources */,
 				590CCBB11EB9FD3E007AC143 /* CallbackTester.cpp in Sources */,
+				5994F4191EC0AA5A00633700 /* OCWCallbackTester.mm in Sources */,
 				590CCBB41EB9FD3E007AC143 /* MultipleInheritance.cpp in Sources */,
 				5989E6BD1EB3C1310023D5F6 /* OCWSimpleClass.mm in Sources */,
 			);
@@ -313,6 +330,7 @@
 			files = (
 				5989E6B21EB3BF8A0023D5F6 /* SimpleClassTests.m in Sources */,
 				5994F4151EC0A4BF00633700 /* SmartPointersTests.m in Sources */,
+				5994F41E1EC0AFDA00633700 /* CallbackTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
