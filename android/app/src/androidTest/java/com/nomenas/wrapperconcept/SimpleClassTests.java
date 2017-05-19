@@ -68,4 +68,12 @@ public class SimpleClassTests {
         assertEquals("const value", result2);
         assertEquals(result1.hashCode(), result2.hashCode());
     }
+
+    @Test
+    public void testEnum() {
+        SimpleClass instance = new SimpleClass(4);
+        SimpleClass.Status result = instance.getStatus();
+        assertTrue(result.equals(SimpleClass.Status.Item2));
+        assertEquals(1, instance.setStatus(result));
+    }
 }

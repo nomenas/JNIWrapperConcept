@@ -12,7 +12,7 @@ namespace wrapper_core {
         std::string return_value;
         auto env = JNIEnvFactory::Create();
         if (env) {
-            const char *text = env->GetStringUTFChars(value, 0);
+            auto text = env->GetStringUTFChars(value, 0);
             return_value = text;
             env->ReleaseStringUTFChars(value, text);
         }

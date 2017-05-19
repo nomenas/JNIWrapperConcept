@@ -14,7 +14,11 @@ using wrapper_core::JNIEnvFactory;
 using wrapper_core::ClassInfoRegister;
 
 JavaVM* JNIEnvFactory::JVM = nullptr;
-std::vector<std::function<void(JNIEnv*)>> ClassInfoRegister::class_initialzers;
+
+std::vector<std::function<void(JNIEnv*)>>& wrapper_core::GetClassInitialzers() {
+    static std::vector<std::function<void(JNIEnv*)>> class_initialzers;
+    return class_initialzers;
+}
 
 extern "C" {
     JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* /*pvt*/) {

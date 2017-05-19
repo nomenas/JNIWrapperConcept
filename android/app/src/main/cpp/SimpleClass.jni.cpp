@@ -9,6 +9,14 @@
 
 REGISTER_CLASS(SimpleClass, "com/nomenas/wrapperconcept/project/SimpleClass")
 
+static EnumMapping SimpleClassStatusMapping = {
+        {0, "Item1"},
+        {1, "Item2"},
+        {2, "Item3"}
+};
+
+REGISTER_ENUM(SimpleClass::Status, "com/nomenas/wrapperconcept/project/SimpleClass$Status", SimpleClassStatusMapping);
+
 #include "SimpleClass.jni.h"
 #include "Integer.jni.h"
 
@@ -68,5 +76,16 @@ JNIEXPORT void JNICALL
     JNIEXPORT jstring JNICALL
     Java_com_nomenas_wrapperconcept_project_SimpleClass_getConstValue(JNIEnv *env, jobject instance) {
         return static_cast<jstring>(call_and_cache<SimpleClass>("getConstValue", instance, &SimpleClass::get_const_value));
+    }
+
+    JNIEXPORT jobject JNICALL
+    Java_com_nomenas_wrapperconcept_project_SimpleClass_getStatus(JNIEnv *env, jobject instance) {
+        return from<SimpleClass::Status>(call<SimpleClass>(instance, &SimpleClass::get_status));
+    }
+
+    JNIEXPORT jint JNICALL
+    Java_com_nomenas_wrapperconcept_project_SimpleClass_setStatus(JNIEnv *env, jobject instance,
+                                                                  jobject status) {
+        return from<int>(call<SimpleClass>(instance, &SimpleClass::set_status, to<SimpleClass::Status>(status)));
     }
 }

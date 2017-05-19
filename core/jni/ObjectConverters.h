@@ -56,6 +56,46 @@ namespace wrapper_core {
         operator const Type&() const { return *_value; }
         Type* _value = nullptr;
     };
+
+    template<typename T>
+    struct to_base_enum {
+        using Type = T;
+        to_base_enum <T>(jobject value) {
+            auto env = JNIEnvFactory::Create();
+            const auto to_string = env->GetMethodID(EnumInfo<T>::Class, "toString","()Ljava/lang/String;");
+            const auto result = static_cast<jstring>(env->CallObjectMethod(value, to_string));
+            const auto enum_name = env->GetStringUTFChars((jstring) result, 0);
+
+            for (const auto& item : EnumInfo<T>::Mapping) {
+                if (item.second == enum_name) {
+                    _value = static_cast<T>(item.first);
+                    break;
+                }
+            }
+
+            env->ReleaseStringUTFChars(result, enum_name);
+        }
+        const Type& value() const { return _value; }
+        operator const Type&() const { return _value; }
+        Type _value;
+    };
+
+    template<typename T>
+    struct from_base_enum {
+        using Type = jobject;
+        from_base_enum<T>(const T& value) {
+            const auto& item = EnumInfo<T>::Mapping[value];
+            if (item.size()) {
+                auto env = JNIEnvFactory::Create();
+                const auto field_type = std::string("L") + EnumInfo<T>::Name + ";";
+                const auto field = env->GetStaticFieldID(EnumInfo<T>::Class, item.c_str(), field_type.c_str());
+                _value = env->GetStaticObjectField(EnumInfo<T>::Class, field);
+            }
+        }
+        Type value() const { return _value; }
+        operator Type() const { return _value; }
+        Type _value;
+    };
 }
 
 #endif //JNIWRAPPERCONCEPT_OBJECTCONVERTERS_H

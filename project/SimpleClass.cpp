@@ -47,7 +47,13 @@ int SimpleClass::call_method_with_obj(Integer obj, int value) const {
     return obj.value() + value;
 }
 
+SimpleClass::Status SimpleClass::get_status() const {
+    return Item2;
+}
 
+int SimpleClass::set_status(Status status) {
+    return status;
+}
 
 
 

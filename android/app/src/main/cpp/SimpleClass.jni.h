@@ -8,5 +8,6 @@
 #include "SimpleClass.h"
 
 DEFINE_WRAPPER(SimpleClass)
+DEFINE_ENUM(SimpleClass::Status)
 
 #endif //ANDROID_SIMPLECLASS_JNI_H

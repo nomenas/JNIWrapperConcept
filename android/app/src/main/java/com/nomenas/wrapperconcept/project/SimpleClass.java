@@ -2,6 +2,12 @@ package com.nomenas.wrapperconcept.project;
 
 public class SimpleClass extends Object {
 
+    public enum Status {
+        Item1,
+        Item2,
+        Item3;
+    }
+
     public SimpleClass(int value) {
         create(value);
     }
@@ -18,6 +24,9 @@ public class SimpleClass extends Object {
     public native int callMethodWithObj(Integer obj, int value);
 
     public native String getConstValue();
+
+    public native Status getStatus();
+    public native int setStatus(Status status);
 
     protected SimpleClass() {};
     protected native void create(int value);

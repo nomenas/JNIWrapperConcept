@@ -19,5 +19,6 @@ using wrapper_core::call;
 using wrapper_core::call_and_cache;
 using wrapper_core::from;
 using wrapper_core::to;
+using wrapper_core::EnumMapping;
 
 #endif //JNIWRAPPERCONCEPT_JNI_CORE_H

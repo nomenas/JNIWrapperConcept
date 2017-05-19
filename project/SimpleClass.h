@@ -15,6 +15,12 @@ using owner = T;
 
 class SimpleClass {
 public:
+    enum Status {
+        Item1,
+        Item2,
+        Item3
+    };
+
     explicit SimpleClass(int);
 
     void method1() const;
@@ -30,6 +36,8 @@ public:
 
     std::string get_const_value() const;
 
+    Status get_status() const;
+    int set_status(Status status);
 private:
     int _value;
 };

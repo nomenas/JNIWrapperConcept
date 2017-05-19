@@ -68,7 +68,7 @@ namespace wrapper_core {
     };
 
     template<typename Class, typename Method, typename... Args>
-    auto call(jobject instance, Method method, Args... args) -> decltype(std::bind(method, instance,
+    auto call(jobject instance, Method method, Args... args) -> decltype(std::bind(method, get_proxy<Class>(instance)->subject(),
                                                                                    std::forward<Args>(
                                                                                            args)...)()) {
         auto proxy = get_proxy<Class>(instance);
@@ -110,6 +110,17 @@ struct to<CLASS> : wrapper_core::to_base_object<CLASS> { \
 template<> \
 struct from<CLASS> : wrapper_core::from_base_object<CLASS> { \
     using wrapper_core::from_base_object<CLASS>::from_base_object; \
+};
+
+#define DEFINE_ENUM(ENUM) \
+extern template struct wrapper_core::ClassInfo<ENUM>; \
+template<> \
+struct to<ENUM> : wrapper_core::to_base_enum<ENUM> { \
+    using wrapper_core::to_base_enum<ENUM>::to_base_enum; \
+}; \
+template<> \
+struct from<ENUM> : wrapper_core::from_base_enum<ENUM> { \
+    using wrapper_core::from_base_enum<ENUM>::from_base_enum; \
 };
 
 #endif //WRAPPERCONCEPT_JNIUTILS_H
