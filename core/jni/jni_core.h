@@ -12,7 +12,7 @@
 #include "SmartPointerConverters.h"
 #include "Callback.h"
 
-using wrapper_core::call_java_void_method;
+using wrapper_core::call_java_method;
 using wrapper_core::set_reference;
 using wrapper_core::delete_referenced_object;
 using wrapper_core::call;

@@ -7,7 +7,7 @@ package com.nomenas.wrapperconcept.project;
 public class BaseClass extends Object {
     public BaseClass() {create();};
 
-    public native int baseClassMethod();
+    public final native int baseClassMethod();
 
     protected native void create();
     protected native void delete();

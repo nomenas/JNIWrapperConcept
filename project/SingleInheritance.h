@@ -12,6 +12,8 @@ public:
     void method1() const override;
     int method2(int value) override;
 
+    int java_overridable() override;
+
 protected:
     mutable int _counter = 0;
 };

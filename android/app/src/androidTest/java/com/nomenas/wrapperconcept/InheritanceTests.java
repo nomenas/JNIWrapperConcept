@@ -1,10 +1,7 @@
 package com.nomenas.wrapperconcept;
 
-import android.content.Context;
-import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.nomenas.wrapperconcept.project.ExtendAndImplement;
 import com.nomenas.wrapperconcept.project.MultipleInheritance;
 import com.nomenas.wrapperconcept.project.SimpleClass;
 import com.nomenas.wrapperconcept.project.SimpleInterface;
@@ -63,21 +60,6 @@ public class InheritanceTests {
         assertEquals(obj.method2(1), 6);
         assertEquals(base_class_cast.method2(1), 7);
         assertEquals(obj_interface.method2(1), 8);
-    }
-
-    @Test
-    public void testExtendAndImplement() {
-        ExtendAndImplement obj = new ExtendAndImplement();
-        SimpleClass baseObj = (SimpleClass) obj;
-
-        // call overriden method in derived class
-        assertEquals(obj.method2(1), 11);
-        // call via base class, overriden method should be called again
-        assertEquals(baseObj.method2(1), 11);
-
-        // call method from base class
-        assertEquals("ownedItem 2", obj.method3(2, "ownedItem"));
-        assertEquals("ownedItem 2", baseObj.method3(2, "ownedItem"));
     }
 
     @Test

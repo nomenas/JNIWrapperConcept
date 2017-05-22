@@ -9,10 +9,10 @@ public class CallbackTester extends Object {
         create(value);
     }
 
-    public native void do_callback(Callback callback);
-    public native void do_callback(LambdaCallback callback);
+    public final native void do_callback(Callback callback);
+    public final native void do_callback(LambdaCallback callback);
 
     protected CallbackTester() {};
-    protected native void create(int value);
+    protected final native void create(int value);
     protected native void delete();
 }

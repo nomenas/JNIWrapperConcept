@@ -17,8 +17,10 @@ class ExtendAndImplement : public SimpleClass, public SimpleInterface {
 public:
     ExtendAndImplement();
 
-    void method1() const;
-    int method2(int value);
+    void method1() const override;
+    int method2(int value) override;
+
+    int java_overridable() override;
 };
 
 class MultipleInheritance : public SimpleClass, public BaseClass {

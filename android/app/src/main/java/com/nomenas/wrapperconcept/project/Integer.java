@@ -8,8 +8,8 @@ public class Integer extends Object {
     public Integer() {create(0);};
     public Integer(int value) {create(value);};
 
-    public native int value();
+    public final native int value();
 
-    protected native void create(int value);
+    protected final native void create(int value);
     protected native void delete();
 }

@@ -27,7 +27,17 @@ namespace wrapper_core {
             }
         }
 
-    protected:
+        template<typename JNIApi>
+        auto call(JNIApi api) -> decltype(call_java_method(api, nullptr, nullptr, nullptr)){
+            return call_java_method(api, _callback, _name, _signature);
+        }
+
+        template<typename JNIApi, typename... Args>
+        auto call(JNIApi api, Args... args) -> decltype(call_java_method(api, nullptr, nullptr, nullptr, std::forward<Args...>(args...))){
+            return call_java_method(api, _callback, _name, _signature, std::forward<Args...>(args...));
+        }
+
+    private:
         jobject _callback;
         const char *_name;
         const char *_signature;

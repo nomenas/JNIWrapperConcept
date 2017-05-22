@@ -7,8 +7,6 @@ package com.nomenas.wrapperconcept.project;
 public class SingleInheritanceExt extends SingleInheritance {
     public SingleInheritanceExt() {create();};
 
-    public native int method2(int value);
-
     protected native void create();
     protected native void delete();
 }

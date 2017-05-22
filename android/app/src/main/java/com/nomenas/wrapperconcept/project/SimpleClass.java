@@ -12,23 +12,23 @@ public class SimpleClass extends Object {
         create(value);
     }
 
-    public native void method1();
-    public native int method2(int value);
-    public native String method3(int value, String text);
+    public final native void method1();
+    public final native int method2(int value);
+    public final native String method3(int value, String text);
 
-    public native Integer getObject();
-    public native Integer getOwnedItem();
-    public native Integer getItemTakeOwnership();
+    public final native Integer getObject();
+    public final native Integer getOwnedItem();
+    public final native Integer getItemTakeOwnership();
 
-    public native int callMethodWithPtr(Integer obj, int value);
-    public native int callMethodWithObj(Integer obj, int value);
+    public final native int callMethodWithPtr(Integer obj, int value);
+    public final native int callMethodWithObj(Integer obj, int value);
 
-    public native String getConstValue();
+    public final native String getConstValue();
 
-    public native Status getStatus();
-    public native int setStatus(Status status);
+    public final native Status getStatus();
+    public final native int setStatus(Status status);
 
     protected SimpleClass() {};
-    protected native void create(int value);
+    protected final native void create(int value);
     protected native void delete();
 }

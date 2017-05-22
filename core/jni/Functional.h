@@ -12,25 +12,17 @@
 #include "Converter.h"
 
 namespace wrapper_core {
-    template<typename... Args>
-    void call_java_void_method(jobject instance, const char *method, const char *signature,
-                               Args... args) {
+    template<typename JNIApi, typename... Args>
+    auto call_java_method(JNIApi api, jobject instance, const char *method, const char *signature, Args... args)
+        -> decltype((static_cast<JNIEnv*>(nullptr)->*api)(nullptr, nullptr, args.value()...)){
         auto env = JNIEnvFactory::Create();
         jmethodID methodId = env->GetMethodID(env->GetObjectClass(instance), method, signature);
-        env->CallVoidMethod(instance, methodId, args.value()...);
-    }
-
-    template<typename... Args>
-    long call_java_long_method(jobject instance, const char *method, const char *signature,
-                               Args... args) {
-        auto env = JNIEnvFactory::Create();
-        jmethodID methodId = env->GetMethodID(env->GetObjectClass(instance), method, signature);
-        return to<long>(env->CallLongMethod(instance, methodId, args.value()...));
+        return (env.get()->*api)(instance, methodId, args.value()...);
     }
 
     template <typename T>
     Proxy<T>* get_proxy(jobject instance) {
-        return reinterpret_cast<Proxy<T>*>(call_java_long_method(instance, "getReference", "()J"));
+        return reinterpret_cast<Proxy<T>*>(call_java_method(&JNIEnv::CallLongMethod, instance, "getReference", "()J"));
     }
 
     template<typename T>
@@ -41,19 +33,19 @@ namespace wrapper_core {
 
     template<typename T>
     void set_reference(jobject instance, T *obj, bool takeOwnership) {
-        call_java_void_method(instance, "setReference", "(J)V",
+        call_java_method(&JNIEnv::CallVoidMethod, instance, "setReference", "(J)V",
                               from<void*>(new Proxy<T>(obj, takeOwnership)));
     }
 
     template<typename T>
     void set_reference(jobject instance, std::shared_ptr<T> obj) {
-        call_java_void_method(instance, "setReference", "(J)V",
+        call_java_method(&JNIEnv::CallVoidMethod, instance, "setReference", "(J)V",
                               from<void*>(new Proxy<T>(obj)));
     }
 
     template<typename T>
     void set_reference(jobject instance, std::unique_ptr<T> obj) {
-        call_java_void_method(instance, "setReference", "(J)V",
+        call_java_method(&JNIEnv::CallVoidMethod, instance, "setReference", "(J)V",
                               from<void*>(new Proxy<T>(std::move(obj))));
     }
 
@@ -63,7 +55,7 @@ namespace wrapper_core {
         if (proxy != nullptr) {
             delete proxy;
             proxy = nullptr;
-            call_java_void_method(instance, "setReference", "(J)V", from<void *>(proxy));
+            call_java_method(&JNIEnv::CallVoidMethod, instance, "setReference", "(J)V", from<void *>(proxy));
         }
     };
 

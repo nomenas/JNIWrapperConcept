@@ -37,7 +37,6 @@ add_library( # Sets the name of the library.
              src/main/cpp/BaseClass.jni.cpp
              src/main/cpp/Integer.jni.cpp
              src/main/cpp/MultipleInheritance.jni.cpp
-             src/main/cpp/ExtendAndImplement.jni.cpp
              src/main/cpp/SmartPointers.jni.cpp)
 
 # Searches for a specified prebuilt library and stores the path as a

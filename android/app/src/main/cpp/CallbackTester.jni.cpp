@@ -16,7 +16,7 @@ public:
     using wrapper_core::Callback::Callback;
 
     void something_happened(int arg) override {
-        call_java_void_method(_callback, _name, _signature, from<int>(arg));
+        call(&JNIEnv::CallVoidMethod, from<int>(arg));
         delete this;
     }
 };
@@ -25,7 +25,7 @@ class LambdaCallbackImpl : public wrapper_core::Callback {
 public:
     using wrapper_core::Callback::Callback;
     void operator()(int value) {
-        call_java_void_method(_callback, _name, _signature, from<int>(value));
+        call(&JNIEnv::CallVoidMethod, from<int>(value));
         delete this;
     }
 };

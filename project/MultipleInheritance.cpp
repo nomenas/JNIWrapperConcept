@@ -14,4 +14,8 @@ int ExtendAndImplement::method2(int value) {
     return value + 10;
 }
 
+int ExtendAndImplement::java_overridable() {
+    return 10;
+}
+
 MultipleInheritance::MultipleInheritance() : SimpleClass(12) {}
