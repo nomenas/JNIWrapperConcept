@@ -10,6 +10,7 @@
 #include "Converter.h"
 #include "ObjectConverters.h"
 #include "SmartPointerConverters.h"
+#include "ContainerConverters.h"
 #include "Callback.h"
 
 using wrapper_core::call_java_method;

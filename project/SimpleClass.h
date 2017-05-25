@@ -6,6 +6,8 @@
 #define WRAPPERCONCEPT_CLASSIMPL_H
 
 #include <string>
+#include <vector>
+#include <memory>
 
 #include "Integer.h"
 
@@ -38,6 +40,12 @@ public:
 
     Status get_status() const;
     int set_status(Status status);
+
+    std::vector<Integer> get_list_of_elements() const;
+    int sum(const std::vector<Integer>& list) const;
+
+    std::shared_ptr<std::vector<Integer>> get_shared_list_of_elements() const;
+    int sum(std::shared_ptr<std::vector<Integer>> list) const;
 private:
     int _value;
 };

@@ -55,5 +55,34 @@ int SimpleClass::set_status(Status status) {
     return status;
 }
 
+std::vector<Integer> SimpleClass::get_list_of_elements() const {
+    std::vector<Integer> return_value;
+    return_value.emplace_back(0);
+    return_value.emplace_back(1);
+    return_value.emplace_back(2);
+    return_value.emplace_back(3);
+    return return_value;
+}
 
+int SimpleClass::sum(const std::vector<Integer> &list) const {
+    int return_value = 0;
 
+    for (const auto& item : list) {
+        return_value += item.value();
+    }
+
+    return return_value;
+}
+
+std::shared_ptr<std::vector<Integer>> SimpleClass::get_shared_list_of_elements() const {
+    auto return_value = std::make_shared<std::vector<Integer>>();
+    return_value->emplace_back(0);
+    return_value->emplace_back(1);
+    return_value->emplace_back(2);
+    return_value->emplace_back(3);
+    return return_value;
+}
+
+int SimpleClass::sum(std::shared_ptr<std::vector<Integer>> list) const {
+    return sum(*list);
+}

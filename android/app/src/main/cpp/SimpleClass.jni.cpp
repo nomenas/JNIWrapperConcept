@@ -88,4 +88,30 @@ JNIEXPORT void JNICALL
                                                                   jobject status) {
         return from<int>(call<SimpleClass>(instance, &SimpleClass::set_status, to<SimpleClass::Status>(status)));
     }
+
+    JNIEXPORT jobject JNICALL
+    Java_com_nomenas_wrapperconcept_project_SimpleClass_getListOfElements(JNIEnv *env,
+                                                                          jobject instance) {
+        return from<std::vector<Integer>>(call<SimpleClass>(instance, &SimpleClass::get_list_of_elements));
+    }
+
+    JNIEXPORT jint JNICALL
+    Java_com_nomenas_wrapperconcept_project_SimpleClass_sum(JNIEnv *env, jobject instance,
+                                                            jobject list) {
+        using MethodSignature = int(SimpleClass::*)(const std::vector<Integer>&) const;
+        return to<int>(call<SimpleClass>(instance, static_cast<MethodSignature>(&SimpleClass::sum), to<std::vector<Integer>>(list)));
+    }
+
+    JNIEXPORT jobject JNICALL
+    Java_com_nomenas_wrapperconcept_project_SimpleClass_getSharedListOfElements(JNIEnv *env,
+                                                                                jobject instance) {
+        return from<std::shared_ptr<std::vector<Integer>>>(call<SimpleClass>(instance, &SimpleClass::get_shared_list_of_elements));
+    }
+
+    JNIEXPORT jint JNICALL
+    Java_com_nomenas_wrapperconcept_project_SimpleClass_sumSharedList(JNIEnv *env, jobject instance,
+                                                                      jobject list) {
+        using MethodSignature = int(SimpleClass::*)(std::shared_ptr<std::vector<Integer>>) const;
+        return to<int>(call<SimpleClass>(instance, static_cast<MethodSignature>(&SimpleClass::sum), to<std::shared_ptr<std::vector<Integer>>>(list)));
+    }
 }

@@ -2,6 +2,14 @@
 
 #include "JNIEnvFactory.h"
 
+#include "ClassInfo.h"
+#include "ArrayList.h"
+
+REGISTER_CLASS(wrapper_core::ArrayList, "java/util/ArrayList");
+
+#include "ContainerConverters.h"
+
+
 namespace wrapper_core {
 
     DEFINE_DEFAULT_CONVERT_FUNCTION(int, jint);

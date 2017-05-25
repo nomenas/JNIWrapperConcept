@@ -13,6 +13,8 @@ import com.nomenas.wrapperconcept.project.SimpleClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -75,5 +77,33 @@ public class SimpleClassTests {
         SimpleClass.Status result = instance.getStatus();
         assertTrue(result.equals(SimpleClass.Status.Item2));
         assertEquals(1, instance.setStatus(result));
+    }
+
+    @Test
+    public void testArray() {
+        SimpleClass instance = new SimpleClass(5);
+        List<Integer> result = instance.getListOfElements();
+        assertNotNull(result);
+        assertEquals(result.size(), 4);
+        assertEquals(result.get(0).value(), 0);
+        assertEquals(result.get(1).value(), 1);
+        assertEquals(result.get(2).value(), 2);
+        assertEquals(result.get(3).value(), 3);
+
+        assertEquals(instance.sum(result), 6);
+    }
+
+    @Test
+    public void testSharedArray() {
+        SimpleClass instance = new SimpleClass(5);
+        List<Integer> result = instance.getSharedListOfElements();
+        assertNotNull(result);
+        assertEquals(result.size(), 4);
+        assertEquals(result.get(0).value(), 0);
+        assertEquals(result.get(1).value(), 1);
+        assertEquals(result.get(2).value(), 2);
+        assertEquals(result.get(3).value(), 3);
+
+        assertEquals(instance.sumSharedList(result), 6);
     }
 }
