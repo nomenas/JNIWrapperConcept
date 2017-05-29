@@ -32,24 +32,6 @@ namespace wrapper_core {
     }
 
     template<typename T>
-    void set_reference(jobject instance, T *obj, bool takeOwnership) {
-        call_java_method(&JNIEnv::CallVoidMethod, instance, "setReference", "(J)V",
-                              from<void*>(new Proxy<T>(obj, takeOwnership)));
-    }
-
-    template<typename T>
-    void set_reference(jobject instance, std::shared_ptr<T> obj) {
-        call_java_method(&JNIEnv::CallVoidMethod, instance, "setReference", "(J)V",
-                              from<void*>(new Proxy<T>(obj)));
-    }
-
-    template<typename T>
-    void set_reference(jobject instance, std::unique_ptr<T> obj) {
-        call_java_method(&JNIEnv::CallVoidMethod, instance, "setReference", "(J)V",
-                              from<void*>(new Proxy<T>(std::move(obj))));
-    }
-
-    template<typename T>
     void delete_referenced_object(jobject instance) {
         auto proxy = get_proxy<T>(instance);
         if (proxy != nullptr) {
@@ -58,6 +40,27 @@ namespace wrapper_core {
             call_java_method(&JNIEnv::CallVoidMethod, instance, "setReference", "(J)V", from<void *>(proxy));
         }
     };
+
+    template<typename T>
+    void set_reference(jobject instance, T *obj, bool takeOwnership) {
+        delete_referenced_object<T>(instance);
+        call_java_method(&JNIEnv::CallVoidMethod, instance, "setReference", "(J)V",
+                              from<void*>(new Proxy<T>(obj, takeOwnership)));
+    }
+
+    template<typename T>
+    void set_reference(jobject instance, std::shared_ptr<T> obj) {
+        delete_referenced_object<T>(instance);
+        call_java_method(&JNIEnv::CallVoidMethod, instance, "setReference", "(J)V",
+                              from<void*>(new Proxy<T>(obj)));
+    }
+
+    template<typename T>
+    void set_reference(jobject instance, std::unique_ptr<T> obj) {
+        delete_referenced_object<T>(instance);
+        call_java_method(&JNIEnv::CallVoidMethod, instance, "setReference", "(J)V",
+                              from<void*>(new Proxy<T>(std::move(obj))));
+    }
 
     template<typename Class, typename Method, typename... Args>
     auto call(jobject instance, Method method, Args... args) -> decltype(std::bind(method, get_proxy<Class>(instance)->subject(),
